@@ -1,11 +1,11 @@
 {
- "generated_at": 1795697206,
- "generated_at_iso": "2026-11-26T19:46:46+07:00",
+ "generated_at": 1795697218,
+ "generated_at_iso": "2026-11-26T19:46:58+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 20556
+  "uptime_s": 20569
  },
  "sessions": {
   "items": [
@@ -27,7 +27,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 1.5,
-    "uptime_s": 96,
+    "uptime_s": 108,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -38,7 +38,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 96,
+    "uptime_s": 108,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -49,7 +49,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 96,
+    "uptime_s": 108,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -58,9 +58,9 @@
    {
     "pid": 5011,
     "ppid": 5003,
-    "cpu": 0.2,
+    "cpu": 1.3,
     "mem": 0.8,
-    "uptime_s": 96,
+    "uptime_s": 108,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -71,7 +71,7 @@
     "ppid": 5003,
     "cpu": 0.0,
     "mem": 0.4,
-    "uptime_s": 96,
+    "uptime_s": 108,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -82,7 +82,7 @@
     "ppid": 5003,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 95,
+    "uptime_s": 107,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -93,7 +93,7 @@
     "ppid": 5003,
     "cpu": 0.0,
     "mem": 1.1,
-    "uptime_s": 95,
+    "uptime_s": 107,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -104,7 +104,7 @@
     "ppid": 5003,
     "cpu": 0.0,
     "mem": 0.4,
-    "uptime_s": 95,
+    "uptime_s": 107,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -113,9 +113,9 @@
    {
     "pid": 5018,
     "ppid": 5003,
-    "cpu": 2.7,
+    "cpu": 5.0,
     "mem": 1.0,
-    "uptime_s": 95,
+    "uptime_s": 107,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -126,7 +126,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.3,
-    "uptime_s": 94,
+    "uptime_s": 106,
     "kind": "hermes",
     "name": "BROWSER TOOL",
     "role": "daemon",
@@ -137,7 +137,7 @@
     "ppid": 5003,
     "cpu": 0.0,
     "mem": 0.4,
-    "uptime_s": 92,
+    "uptime_s": 104,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -147,19 +147,30 @@
     "pid": 5240,
     "ppid": 42494,
     "cpu": 0.0,
-    "mem": 1.0,
-    "uptime_s": 47,
+    "mem": 0.9,
+    "uptime_s": 59,
     "kind": "hermes",
     "name": "node",
     "role": "agent",
     "cmd": "node"
    },
    {
+    "pid": 5800,
+    "ppid": 42494,
+    "cpu": 0.0,
+    "mem": 0.0,
+    "uptime_s": 3,
+    "kind": "hermes",
+    "name": "bash",
+    "role": "agent",
+    "cmd": "bash"
+   },
+   {
     "pid": 42488,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 20558,
+    "uptime_s": 20570,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -170,7 +181,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 20558,
+    "uptime_s": 20570,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -179,9 +190,9 @@
    {
     "pid": 42494,
     "ppid": 42489,
-    "cpu": 3.2,
-    "mem": 3.0,
-    "uptime_s": 20558,
+    "cpu": 2.2,
+    "mem": 3.1,
+    "uptime_s": 20570,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -192,7 +203,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 19622,
+    "uptime_s": 19634,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -203,7 +214,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.1,
-    "uptime_s": 13765,
+    "uptime_s": 13777,
     "kind": "hermes",
     "name": "SYNC TRIGGER",
     "role": "daemon",
@@ -214,43 +225,60 @@
  "system": {
   "hostname": "home-mac",
   "load": [
-   2.76,
-   2.17,
-   1.97
+   2.41,
+   2.12,
+   1.95
   ],
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 10516955136,
+   "used": 10505502720,
    "pct": 61.2
   },
   "disk": {
    "total": 494384795648,
-   "free": 360680116224,
+   "free": 360678875136,
    "pct_used": 27.0
   },
-  "uptime_s": 100253
+  "uptime_s": 100265
  },
  "usage": {
   "sessions": 1,
-  "messages": 602,
-  "tokens": 786169,
-  "cost_usd": 0.9
+  "messages": 604,
+  "tokens": 786950,
+  "cost_usd": 0.91
  },
  "working": {
   "items": []
  },
  "activity": {
   "current": {
-   "ts": 1795697208,
-   "iso": "2026-11-26T19:46:48+07:00",
+   "ts": 1795697218,
+   "iso": "2026-11-26T19:46:58+07:00",
    "level": "INFO",
    "session": "s77ccf95",
    "kind": "api",
-   "detail": "glm-5.3-flash · 6.2s",
-   "age_s": 1
+   "detail": "glm-5.3-flash · 8.6s",
+   "age_s": 3
   },
   "events": [
+   {
+    "ts": 1795697218,
+    "iso": "2026-11-26T19:46:58+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 8.6s"
+   },
+   {
+    "ts": 1795697210,
+    "iso": "2026-11-26T19:46:50+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "process_manage",
+    "detail": "process_manage"
+   },
    {
     "ts": 1795697208,
     "iso": "2026-11-26T19:46:48+07:00",
@@ -403,27 +431,10 @@
     "kind": "tool",
     "tool": "terminal",
     "detail": "terminal"
-   },
-   {
-    "ts": 1795697146,
-    "iso": "2026-11-26T19:45:46+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 8.4s"
-   },
-   {
-    "ts": 1795697138,
-    "iso": "2026-11-26T19:45:38+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "browser_exec",
-    "detail": "browser_exec"
    }
   ],
   "last_tool": {
-   "s77ccf95": "terminal"
+   "s77ccf95": "process_manage"
   },
   "active_sessions": [
    "s77ccf95"
