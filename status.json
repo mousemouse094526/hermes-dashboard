@@ -1,11 +1,11 @@
 {
- "generated_at": 1795697232,
- "generated_at_iso": "2026-11-26T19:47:12+07:00",
+ "generated_at": 1795697320,
+ "generated_at_iso": "2026-11-26T19:48:40+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 20582
+  "uptime_s": 20671
  },
  "sessions": {
   "items": [
@@ -23,29 +23,161 @@
  "processes": {
   "items": [
    {
-    "pid": 5023,
-    "ppid": 1,
-    "cpu": 0.0,
-    "mem": 0.3,
-    "uptime_s": 120,
-    "kind": "hermes",
-    "name": "BROWSER TOOL",
-    "role": "daemon",
-    "cmd": "browser_harness.daemon"
-   },
-   {
     "pid": 5240,
     "ppid": 42494,
     "cpu": 0.0,
-    "mem": 0.9,
-    "uptime_s": 73,
+    "mem": 0.8,
+    "uptime_s": 161,
     "kind": "hermes",
     "name": "node",
     "role": "agent",
     "cmd": "node"
    },
    {
-    "pid": 5903,
+    "pid": 6335,
+    "ppid": 42494,
+    "cpu": 0.1,
+    "mem": 1.4,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6337,
+    "ppid": 1,
+    "cpu": 0.0,
+    "mem": 0.0,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6339,
+    "ppid": 1,
+    "cpu": 0.0,
+    "mem": 0.0,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6343,
+    "ppid": 6335,
+    "cpu": 1.6,
+    "mem": 0.7,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6344,
+    "ppid": 6335,
+    "cpu": 0.0,
+    "mem": 0.4,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6345,
+    "ppid": 6335,
+    "cpu": 0.0,
+    "mem": 0.2,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6348,
+    "ppid": 6335,
+    "cpu": 0.1,
+    "mem": 1.2,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6349,
+    "ppid": 6335,
+    "cpu": 0.0,
+    "mem": 0.4,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6350,
+    "ppid": 6335,
+    "cpu": 4.3,
+    "mem": 0.9,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6352,
+    "ppid": 6335,
+    "cpu": 0.0,
+    "mem": 0.5,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6353,
+    "ppid": 6335,
+    "cpu": 0.0,
+    "mem": 0.5,
+    "uptime_s": 17,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6355,
+    "ppid": 1,
+    "cpu": 0.0,
+    "mem": 0.3,
+    "uptime_s": 16,
+    "kind": "hermes",
+    "name": "BROWSER TOOL",
+    "role": "daemon",
+    "cmd": "browser_harness.daemon"
+   },
+   {
+    "pid": 6363,
+    "ppid": 6335,
+    "cpu": 0.0,
+    "mem": 0.4,
+    "uptime_s": 13,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 6395,
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
@@ -56,22 +188,11 @@
     "cmd": "bash"
    },
    {
-    "pid": 5960,
-    "ppid": 5918,
-    "cpu": 47.7,
-    "mem": 0.5,
-    "uptime_s": 1,
-    "kind": "hermes",
-    "name": "python3",
-    "role": "agent",
-    "cmd": "python3"
-   },
-   {
     "pid": 42488,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 20584,
+    "uptime_s": 20672,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -82,7 +203,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 20584,
+    "uptime_s": 20672,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -91,9 +212,9 @@
    {
     "pid": 42494,
     "ppid": 42489,
-    "cpu": 5.3,
-    "mem": 3.1,
-    "uptime_s": 20584,
+    "cpu": 1.8,
+    "mem": 2.8,
+    "uptime_s": 20672,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -104,7 +225,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 19648,
+    "uptime_s": 19736,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -115,7 +236,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.1,
-    "uptime_s": 13791,
+    "uptime_s": 13879,
     "kind": "hermes",
     "name": "SYNC TRIGGER",
     "role": "daemon",
@@ -126,62 +247,88 @@
  "system": {
   "hostname": "home-mac",
   "load": [
-   2.09,
-   2.06,
-   1.93
+   2.19,
+   2.07,
+   1.94
   ],
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 10305175552,
-   "pct": 60.0
+   "used": 10517774336,
+   "pct": 61.2
   },
   "disk": {
    "total": 494384795648,
-   "free": 360687407104,
+   "free": 360679522304,
    "pct_used": 27.0
   },
-  "uptime_s": 100279
+  "uptime_s": 100367
  },
  "usage": {
   "sessions": 1,
-  "messages": 608,
-  "tokens": 793549,
-  "cost_usd": 0.91
+  "messages": 622,
+  "tokens": 953521,
+  "cost_usd": 0.97
  },
  "working": {
   "items": []
  },
  "activity": {
   "current": {
-   "ts": 1795697232,
-   "iso": "2026-11-26T19:47:12+07:00",
+   "ts": 1795697320,
+   "iso": "2026-11-26T19:48:40+07:00",
    "level": "INFO",
    "session": "s77ccf95",
    "kind": "api",
-   "detail": "glm-5.3-flash · 3.3s",
+   "detail": "glm-5.3-flash · 2.8s",
    "age_s": 3
   },
   "events": [
    {
-    "ts": 1795697232,
-    "iso": "2026-11-26T19:47:12+07:00",
+    "ts": 1795697320,
+    "iso": "2026-11-26T19:48:40+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "api",
-    "detail": "glm-5.3-flash · 3.3s"
+    "detail": "glm-5.3-flash · 2.8s"
    },
    {
-    "ts": 1795697232,
-    "iso": "2026-11-26T19:47:12+07:00",
-    "level": "WARNING",
-    "session": null,
-    "kind": "other",
-    "detail": "warning: browser_supervisor"
+    "ts": 1795697317,
+    "iso": "2026-11-26T19:48:37+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "browser_exec",
+    "detail": "browser_exec"
    },
    {
-    "ts": 1795697228,
-    "iso": "2026-11-26T19:47:08+07:00",
+    "ts": 1795697317,
+    "iso": "2026-11-26T19:48:37+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 3.1s"
+   },
+   {
+    "ts": 1795697314,
+    "iso": "2026-11-26T19:48:34+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "browser_exec",
+    "detail": "browser_exec"
+   },
+   {
+    "ts": 1795697305,
+    "iso": "2026-11-26T19:48:25+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 7.0s"
+   },
+   {
+    "ts": 1795697298,
+    "iso": "2026-11-26T19:48:18+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "turn",
@@ -189,152 +336,125 @@
     "detail": "turn started (telegram)"
    },
    {
-    "ts": 1795697228,
-    "iso": "2026-11-26T19:47:08+07:00",
+    "ts": 1795697298,
+    "iso": "2026-11-26T19:48:18+07:00",
     "level": "INFO",
     "session": null,
     "kind": "message_in",
     "detail": "message in (telegram)"
    },
    {
-    "ts": 1795697228,
-    "iso": "2026-11-26T19:47:08+07:00",
+    "ts": 1795697280,
+    "iso": "2026-11-26T19:48:00+07:00",
+    "level": "INFO",
+    "session": null,
+    "kind": "message_out",
+    "detail": "message out (telegram)"
+   },
+   {
+    "ts": 1795697280,
+    "iso": "2026-11-26T19:48:00+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 4.6s"
+   },
+   {
+    "ts": 1795697276,
+    "iso": "2026-11-26T19:47:56+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "read_file",
+    "detail": "read_file"
+   },
+   {
+    "ts": 1795697276,
+    "iso": "2026-11-26T19:47:56+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 2.7s"
+   },
+   {
+    "ts": 1795697273,
+    "iso": "2026-11-26T19:47:53+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795697273,
+    "iso": "2026-11-26T19:47:53+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 12.5s"
+   },
+   {
+    "ts": 1795697260,
+    "iso": "2026-11-26T19:47:40+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "turn",
+    "platform": "telegram",
+    "detail": "turn started (telegram)"
+   },
+   {
+    "ts": 1795697260,
+    "iso": "2026-11-26T19:47:40+07:00",
+    "level": "INFO",
+    "session": null,
+    "kind": "message_in",
+    "detail": "message in (telegram)"
+   },
+   {
+    "ts": 1795697259,
+    "iso": "2026-11-26T19:47:39+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "turn",
+    "platform": "telegram",
+    "detail": "turn started (telegram)"
+   },
+   {
+    "ts": 1795697259,
+    "iso": "2026-11-26T19:47:39+07:00",
+    "level": "INFO",
+    "session": null,
+    "kind": "message_out",
+    "detail": "message out (telegram)"
+   },
+   {
+    "ts": 1795697259,
+    "iso": "2026-11-26T19:47:39+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 9.7s"
+   },
+   {
+    "ts": 1795697249,
+    "iso": "2026-11-26T19:47:29+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795697244,
+    "iso": "2026-11-26T19:47:24+07:00",
     "level": "WARNING",
-    "session": "s77ccf95",
-    "kind": "tool_error",
-    "tool": "terminal",
-    "detail": "tool error: terminal"
-   },
-   {
-    "ts": 1795697218,
-    "iso": "2026-11-26T19:46:58+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 8.6s"
-   },
-   {
-    "ts": 1795697210,
-    "iso": "2026-11-26T19:46:50+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "process_manage",
-    "detail": "process_manage"
-   },
-   {
-    "ts": 1795697208,
-    "iso": "2026-11-26T19:46:48+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 6.2s"
-   },
-   {
-    "ts": 1795697202,
-    "iso": "2026-11-26T19:46:42+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795697198,
-    "iso": "2026-11-26T19:46:38+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 4.2s"
-   },
-   {
-    "ts": 1795697193,
-    "iso": "2026-11-26T19:46:33+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795697193,
-    "iso": "2026-11-26T19:46:33+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 3.4s"
-   },
-   {
-    "ts": 1795697190,
-    "iso": "2026-11-26T19:46:30+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795697185,
-    "iso": "2026-11-26T19:46:25+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 3.3s"
-   },
-   {
-    "ts": 1795697181,
-    "iso": "2026-11-26T19:46:21+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "patch",
-    "detail": "patch"
-   },
-   {
-    "ts": 1795697181,
-    "iso": "2026-11-26T19:46:21+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 8.4s"
-   },
-   {
-    "ts": 1795697173,
-    "iso": "2026-11-26T19:46:13+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795697173,
-    "iso": "2026-11-26T19:46:13+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 5.5s"
-   },
-   {
-    "ts": 1795697167,
-    "iso": "2026-11-26T19:46:07+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795697166,
-    "iso": "2026-11-26T19:46:06+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 2.9s"
+    "session": null,
+    "kind": "other",
+    "detail": "warning: browser_supervisor"
    }
   ],
   "last_tool": {
-   "s77ccf95": "terminal"
+   "s77ccf95": "browser_exec"
   },
   "active_sessions": [
    "s77ccf95"
