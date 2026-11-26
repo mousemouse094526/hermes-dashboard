@@ -1,11 +1,11 @@
 {
- "generated_at": 1795698261,
- "generated_at_iso": "2026-11-26T20:04:21+07:00",
+ "generated_at": 1795698279,
+ "generated_at_iso": "2026-11-26T20:04:39+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 21611
+  "uptime_s": 21629
  },
  "sessions": {
   "items": [
@@ -27,7 +27,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.3,
-    "uptime_s": 957,
+    "uptime_s": 974,
     "kind": "hermes",
     "name": "BROWSER TOOL",
     "role": "daemon",
@@ -38,7 +38,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.1,
-    "uptime_s": 868,
+    "uptime_s": 885,
     "kind": "hermes",
     "name": "SYNC TRIGGER",
     "role": "daemon",
@@ -49,18 +49,18 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 1.4,
-    "uptime_s": 7,
+    "uptime_s": 24,
     "kind": "hermes",
     "name": "node",
     "role": "agent",
     "cmd": "node"
    },
    {
-    "pid": 9489,
+    "pid": 9588,
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 3,
+    "uptime_s": 7,
     "kind": "hermes",
     "name": "bash",
     "role": "agent",
@@ -71,7 +71,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 21613,
+    "uptime_s": 21630,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -82,7 +82,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 21613,
+    "uptime_s": 21630,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -91,9 +91,9 @@
    {
     "pid": 42494,
     "ppid": 42489,
-    "cpu": 0.6,
-    "mem": 3.0,
-    "uptime_s": 21613,
+    "cpu": 2.1,
+    "mem": 2.8,
+    "uptime_s": 21630,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -104,7 +104,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 20677,
+    "uptime_s": 20694,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -115,43 +115,60 @@
  "system": {
   "hostname": "home-mac",
   "load": [
-   2.13,
-   1.91,
-   1.9
+   2.1,
+   1.92,
+   1.91
   ],
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 10311712768,
-   "pct": 60.0
+   "used": 10294984704,
+   "pct": 59.9
   },
   "disk": {
    "total": 494384795648,
-   "free": 360691150848,
+   "free": 360694030336,
    "pct_used": 27.0
   },
-  "uptime_s": 101308
+  "uptime_s": 101325
  },
  "usage": {
   "sessions": 1,
-  "messages": 658,
-  "tokens": 1129494,
-  "cost_usd": 1.07
+  "messages": 660,
+  "tokens": 1129895,
+  "cost_usd": 1.08
  },
  "working": {
   "items": []
  },
  "activity": {
   "current": {
-   "ts": 1795698261,
-   "iso": "2026-11-26T20:04:21+07:00",
+   "ts": 1795698274,
+   "iso": "2026-11-26T20:04:34+07:00",
    "level": "INFO",
    "session": "s77ccf95",
    "kind": "api",
-   "detail": "glm-5.3-flash · 3.5s",
-   "age_s": 3
+   "detail": "glm-5.3-flash · 2.9s",
+   "age_s": 7
   },
   "events": [
+   {
+    "ts": 1795698274,
+    "iso": "2026-11-26T20:04:34+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 2.9s"
+   },
+   {
+    "ts": 1795698271,
+    "iso": "2026-11-26T20:04:31+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
    {
     "ts": 1795698261,
     "iso": "2026-11-26T20:04:21+07:00",
@@ -303,27 +320,10 @@
     "session": "s77ccf95",
     "kind": "api",
     "detail": "glm-5.3-flash · 5.4s"
-   },
-   {
-    "ts": 1795697476,
-    "iso": "2026-11-26T19:51:16+07:00",
-    "level": "WARNING",
-    "session": null,
-    "kind": "other",
-    "detail": "warning: browser_supervisor"
-   },
-   {
-    "ts": 1795697472,
-    "iso": "2026-11-26T19:51:12+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "skill_manage",
-    "detail": "skill_manage"
    }
   ],
   "last_tool": {
-   "s77ccf95": "patch"
+   "s77ccf95": "terminal"
   },
   "active_sessions": [
    "s77ccf95"
