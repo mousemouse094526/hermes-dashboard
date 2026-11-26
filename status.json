@@ -1,11 +1,11 @@
 {
- "generated_at": 1795697340,
- "generated_at_iso": "2026-11-26T19:49:00+07:00",
+ "generated_at": 1795697369,
+ "generated_at_iso": "2026-11-26T19:49:29+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 20691
+  "uptime_s": 20719
  },
  "sessions": {
   "items": [
@@ -27,7 +27,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.8,
-    "uptime_s": 181,
+    "uptime_s": 209,
     "kind": "hermes",
     "name": "node",
     "role": "agent",
@@ -36,9 +36,9 @@
    {
     "pid": 6335,
     "ppid": 42494,
-    "cpu": 0.1,
+    "cpu": 0.0,
     "mem": 1.5,
-    "uptime_s": 37,
+    "uptime_s": 65,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -49,7 +49,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 37,
+    "uptime_s": 65,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -60,7 +60,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 37,
+    "uptime_s": 65,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -69,9 +69,9 @@
    {
     "pid": 6343,
     "ppid": 6335,
-    "cpu": 1.4,
+    "cpu": 0.7,
     "mem": 0.7,
-    "uptime_s": 37,
+    "uptime_s": 65,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -82,7 +82,7 @@
     "ppid": 6335,
     "cpu": 0.0,
     "mem": 0.4,
-    "uptime_s": 37,
+    "uptime_s": 65,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -93,7 +93,7 @@
     "ppid": 6335,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 37,
+    "uptime_s": 65,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -104,7 +104,7 @@
     "ppid": 6335,
     "cpu": 0.0,
     "mem": 1.1,
-    "uptime_s": 37,
+    "uptime_s": 65,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -115,7 +115,7 @@
     "ppid": 6335,
     "cpu": 0.0,
     "mem": 0.4,
-    "uptime_s": 37,
+    "uptime_s": 65,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -124,9 +124,9 @@
    {
     "pid": 6350,
     "ppid": 6335,
-    "cpu": 4.1,
+    "cpu": 2.5,
     "mem": 1.0,
-    "uptime_s": 37,
+    "uptime_s": 65,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -137,7 +137,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.3,
-    "uptime_s": 36,
+    "uptime_s": 64,
     "kind": "hermes",
     "name": "BROWSER TOOL",
     "role": "daemon",
@@ -148,29 +148,51 @@
     "ppid": 6335,
     "cpu": 0.0,
     "mem": 0.4,
-    "uptime_s": 33,
+    "uptime_s": 61,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
     "cmd": "Google"
    },
    {
-    "pid": 6582,
+    "pid": 6731,
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 3,
+    "uptime_s": 16,
     "kind": "hermes",
     "name": "bash",
     "role": "agent",
     "cmd": "bash"
    },
    {
+    "pid": 6837,
+    "ppid": 1,
+    "cpu": 0.0,
+    "mem": 0.1,
+    "uptime_s": 6,
+    "kind": "hermes",
+    "name": "SYNC TRIGGER",
+    "role": "daemon",
+    "cmd": "dashboard-trigger.py"
+   },
+   {
+    "pid": 6897,
+    "ppid": 6868,
+    "cpu": 19.9,
+    "mem": 0.2,
+    "uptime_s": 0,
+    "kind": "hermes",
+    "name": "python3",
+    "role": "agent",
+    "cmd": "python3"
+   },
+   {
     "pid": 42488,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 20692,
+    "uptime_s": 20720,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -181,7 +203,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 20692,
+    "uptime_s": 20720,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -192,7 +214,7 @@
     "ppid": 42489,
     "cpu": 2.0,
     "mem": 2.9,
-    "uptime_s": 20692,
+    "uptime_s": 20720,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -203,65 +225,71 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 19756,
+    "uptime_s": 19784,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
     "cmd": "sh"
-   },
-   {
-    "pid": 66707,
-    "ppid": 1,
-    "cpu": 0.0,
-    "mem": 0.1,
-    "uptime_s": 13899,
-    "kind": "hermes",
-    "name": "SYNC TRIGGER",
-    "role": "daemon",
-    "cmd": "dashboard-trigger.py"
    }
   ]
  },
  "system": {
   "hostname": "home-mac",
   "load": [
-   2.31,
+   2.28,
    2.1,
-   1.95
+   1.96
   ],
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 10473046016,
-   "pct": 61.0
+   "used": 10500227072,
+   "pct": 61.1
   },
   "disk": {
    "total": 494384795648,
-   "free": 360679591936,
+   "free": 360679190528,
    "pct_used": 27.0
   },
-  "uptime_s": 100387
+  "uptime_s": 100415
  },
  "usage": {
   "sessions": 1,
-  "messages": 628,
-  "tokens": 955384,
-  "cost_usd": 0.98
+  "messages": 630,
+  "tokens": 955934,
+  "cost_usd": 0.99
  },
  "working": {
   "items": []
  },
  "activity": {
   "current": {
-   "ts": 1795697340,
-   "iso": "2026-11-26T19:49:00+07:00",
+   "ts": 1795697351,
+   "iso": "2026-11-26T19:49:11+07:00",
    "level": "INFO",
    "session": "s77ccf95",
    "kind": "api",
-   "detail": "glm-5.3-flash · 4.6s",
-   "age_s": 3
+   "detail": "glm-5.3-flash · 5.4s",
+   "age_s": 21
   },
   "events": [
+   {
+    "ts": 1795697351,
+    "iso": "2026-11-26T19:49:11+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 5.4s"
+   },
+   {
+    "ts": 1795697346,
+    "iso": "2026-11-26T19:49:06+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
    {
     "ts": 1795697340,
     "iso": "2026-11-26T19:49:00+07:00",
@@ -413,27 +441,10 @@
     "kind": "tool",
     "tool": "terminal",
     "detail": "terminal"
-   },
-   {
-    "ts": 1795697273,
-    "iso": "2026-11-26T19:47:53+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 12.5s"
-   },
-   {
-    "ts": 1795697260,
-    "iso": "2026-11-26T19:47:40+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "turn",
-    "platform": "telegram",
-    "detail": "turn started (telegram)"
    }
   ],
   "last_tool": {
-   "s77ccf95": "browser_exec"
+   "s77ccf95": "terminal"
   },
   "active_sessions": [
    "s77ccf95"
