@@ -1,11 +1,11 @@
 {
- "generated_at": 1795697320,
- "generated_at_iso": "2026-11-26T19:48:40+07:00",
+ "generated_at": 1795697340,
+ "generated_at_iso": "2026-11-26T19:49:00+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 20671
+  "uptime_s": 20691
  },
  "sessions": {
   "items": [
@@ -27,7 +27,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.8,
-    "uptime_s": 161,
+    "uptime_s": 181,
     "kind": "hermes",
     "name": "node",
     "role": "agent",
@@ -37,8 +37,8 @@
     "pid": 6335,
     "ppid": 42494,
     "cpu": 0.1,
-    "mem": 1.4,
-    "uptime_s": 17,
+    "mem": 1.5,
+    "uptime_s": 37,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -49,7 +49,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 17,
+    "uptime_s": 37,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -60,7 +60,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 17,
+    "uptime_s": 37,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -69,9 +69,9 @@
    {
     "pid": 6343,
     "ppid": 6335,
-    "cpu": 1.6,
+    "cpu": 1.4,
     "mem": 0.7,
-    "uptime_s": 17,
+    "uptime_s": 37,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -82,7 +82,7 @@
     "ppid": 6335,
     "cpu": 0.0,
     "mem": 0.4,
-    "uptime_s": 17,
+    "uptime_s": 37,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -93,7 +93,7 @@
     "ppid": 6335,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 17,
+    "uptime_s": 37,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -102,9 +102,9 @@
    {
     "pid": 6348,
     "ppid": 6335,
-    "cpu": 0.1,
-    "mem": 1.2,
-    "uptime_s": 17,
+    "cpu": 0.0,
+    "mem": 1.1,
+    "uptime_s": 37,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -115,7 +115,7 @@
     "ppid": 6335,
     "cpu": 0.0,
     "mem": 0.4,
-    "uptime_s": 17,
+    "uptime_s": 37,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -124,31 +124,9 @@
    {
     "pid": 6350,
     "ppid": 6335,
-    "cpu": 4.3,
-    "mem": 0.9,
-    "uptime_s": 17,
-    "kind": "hermes",
-    "name": "Google",
-    "role": "agent",
-    "cmd": "Google"
-   },
-   {
-    "pid": 6352,
-    "ppid": 6335,
-    "cpu": 0.0,
-    "mem": 0.5,
-    "uptime_s": 17,
-    "kind": "hermes",
-    "name": "Google",
-    "role": "agent",
-    "cmd": "Google"
-   },
-   {
-    "pid": 6353,
-    "ppid": 6335,
-    "cpu": 0.0,
-    "mem": 0.5,
-    "uptime_s": 17,
+    "cpu": 4.1,
+    "mem": 1.0,
+    "uptime_s": 37,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
@@ -159,7 +137,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.3,
-    "uptime_s": 16,
+    "uptime_s": 36,
     "kind": "hermes",
     "name": "BROWSER TOOL",
     "role": "daemon",
@@ -170,14 +148,14 @@
     "ppid": 6335,
     "cpu": 0.0,
     "mem": 0.4,
-    "uptime_s": 13,
+    "uptime_s": 33,
     "kind": "hermes",
     "name": "Google",
     "role": "agent",
     "cmd": "Google"
    },
    {
-    "pid": 6395,
+    "pid": 6582,
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
@@ -192,7 +170,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 20672,
+    "uptime_s": 20692,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -203,7 +181,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 20672,
+    "uptime_s": 20692,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -212,9 +190,9 @@
    {
     "pid": 42494,
     "ppid": 42489,
-    "cpu": 1.8,
-    "mem": 2.8,
-    "uptime_s": 20672,
+    "cpu": 2.0,
+    "mem": 2.9,
+    "uptime_s": 20692,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -225,7 +203,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 19736,
+    "uptime_s": 19756,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -236,7 +214,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.1,
-    "uptime_s": 13879,
+    "uptime_s": 13899,
     "kind": "hermes",
     "name": "SYNC TRIGGER",
     "role": "daemon",
@@ -247,43 +225,94 @@
  "system": {
   "hostname": "home-mac",
   "load": [
-   2.19,
-   2.07,
-   1.94
+   2.31,
+   2.1,
+   1.95
   ],
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 10517774336,
-   "pct": 61.2
+   "used": 10473046016,
+   "pct": 61.0
   },
   "disk": {
    "total": 494384795648,
-   "free": 360679522304,
+   "free": 360679591936,
    "pct_used": 27.0
   },
-  "uptime_s": 100367
+  "uptime_s": 100387
  },
  "usage": {
   "sessions": 1,
-  "messages": 622,
-  "tokens": 953521,
-  "cost_usd": 0.97
+  "messages": 628,
+  "tokens": 955384,
+  "cost_usd": 0.98
  },
  "working": {
   "items": []
  },
  "activity": {
   "current": {
-   "ts": 1795697320,
-   "iso": "2026-11-26T19:48:40+07:00",
+   "ts": 1795697340,
+   "iso": "2026-11-26T19:49:00+07:00",
    "level": "INFO",
    "session": "s77ccf95",
    "kind": "api",
-   "detail": "glm-5.3-flash · 2.8s",
+   "detail": "glm-5.3-flash · 4.6s",
    "age_s": 3
   },
   "events": [
+   {
+    "ts": 1795697340,
+    "iso": "2026-11-26T19:49:00+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 4.6s"
+   },
+   {
+    "ts": 1795697335,
+    "iso": "2026-11-26T19:48:55+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "browser_exec",
+    "detail": "browser_exec"
+   },
+   {
+    "ts": 1795697335,
+    "iso": "2026-11-26T19:48:55+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 5.7s"
+   },
+   {
+    "ts": 1795697330,
+    "iso": "2026-11-26T19:48:50+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795697329,
+    "iso": "2026-11-26T19:48:49+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 3.8s"
+   },
+   {
+    "ts": 1795697326,
+    "iso": "2026-11-26T19:48:46+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
    {
     "ts": 1795697320,
     "iso": "2026-11-26T19:48:40+07:00",
@@ -401,56 +430,6 @@
     "kind": "turn",
     "platform": "telegram",
     "detail": "turn started (telegram)"
-   },
-   {
-    "ts": 1795697260,
-    "iso": "2026-11-26T19:47:40+07:00",
-    "level": "INFO",
-    "session": null,
-    "kind": "message_in",
-    "detail": "message in (telegram)"
-   },
-   {
-    "ts": 1795697259,
-    "iso": "2026-11-26T19:47:39+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "turn",
-    "platform": "telegram",
-    "detail": "turn started (telegram)"
-   },
-   {
-    "ts": 1795697259,
-    "iso": "2026-11-26T19:47:39+07:00",
-    "level": "INFO",
-    "session": null,
-    "kind": "message_out",
-    "detail": "message out (telegram)"
-   },
-   {
-    "ts": 1795697259,
-    "iso": "2026-11-26T19:47:39+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 9.7s"
-   },
-   {
-    "ts": 1795697249,
-    "iso": "2026-11-26T19:47:29+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795697244,
-    "iso": "2026-11-26T19:47:24+07:00",
-    "level": "WARNING",
-    "session": null,
-    "kind": "other",
-    "detail": "warning: browser_supervisor"
    }
   ],
   "last_tool": {
