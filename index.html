@@ -38,6 +38,12 @@
   .quota-ok { color:var(--ok,#3dff8a); }
   .quota-warn { color:#ffd75f; }
   .quota-full { color:var(--bad); }
+  #toast { position:fixed; top:56px; right:16px; z-index:99; padding:12px 16px; font-size:10px;
+    background:#0a1224ee; border:2px solid #3dff8a88; color:var(--ok,#3dff8a); box-shadow:0 0 18px #3dff8a44;
+    animation:toastin .18s steps(4); max-width:320px; }
+  #toast.warn { border-color:#ffd75f88; color:#ffd75f; box-shadow:0 0 18px #ffd75f44; }
+  #toast.bad { border-color:#ff4d5e88; color:var(--bad); box-shadow:0 0 18px #ff4d5e44; }
+  @keyframes toastin { from { transform:translateX(30px); opacity:0; } }
   #clock { font-size:16px; color:var(--neon); text-shadow:0 0 8px #3ee8ff88; font-variant-numeric:tabular-nums; }
   #age { font-size:8px; } .stale { color:var(--bad); } .fresh { color:var(--dim); }
 
@@ -207,6 +213,7 @@
     <span id="age" class="fresh">loading…</span>
     <button id="refresh" class="pill px" title="ซิงค์ข้อมูลจริง: เก็บสถานะใหม่จากเครื่อง + push (ปุ่ม S หรือ R)">⟳ SYNC</button>
     <span id="quota" class="pill px quota-ok" title="GitHub Pages build ที่ใช้ไปในชั่วโมงนี้">⚙ 0/9</span>
+    <div id="toast" hidden></div>
     <label class="pill px" style="cursor:pointer"><input type="checkbox" id="auto" style="vertical-align:middle"> AUTO 20s</label>
     <span id="pill" class="pill px bad"><b id="active">0 AGENTS ACTIVE</b></span>
     <span id="clock">--:--:--</span>
@@ -462,7 +469,11 @@ async function sync(force) {
         if (j && j.quota) updateQuota(j.quota.used, j.quota.limit);
         if (j && j.quota && j.quota.used >= j.quota.limit) {
           btn.textContent = "⛔ SYNC LIMIT";
-          flashAge("SYNC quota exhausted this hour — try again in a few minutes");
+          toast("⛔ SYNC LIMIT — โควตา build ชั่วโมงนี้หมด รอ reset", "bad");
+        } else if (j.pushed === false) {
+          toast("✓ UP TO DATE — ข้อมูลบนเว็บเป็นล่าสุดแล้ว ไม่มีอะไรใหม่ให้ push");
+        } else if (j.pushed === true) {
+          toast("✓ SYNCED — เก็บข้อมูลใหม่และ push แล้ว (รอ Pages build ~1-3 นาที)");
         }
       } catch (_) { /* no local trigger daemon: just refetch */ }
     }
@@ -498,6 +509,14 @@ function flashAge(msg) {
   const el = $("age"); const old = el.textContent;
   el.textContent = "⚠ " + msg;
   setTimeout(() => { if (el.textContent === "⚠ " + msg) tick(); }, 6000);
+}
+let toastTimer = null;
+function toast(msg, cls) {
+  const t = $("toast");
+  t.textContent = msg; t.hidden = false;
+  t.className = cls || "";
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.hidden = true; }, 4000);
 }
 function fit() { const s = $("stage"); s.style.setProperty("--s", Math.min(1, s.clientWidth / 760)); }
 
