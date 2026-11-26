@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermes · Machine Status</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0a0e1a; --panel:#0e1526; --line:#1f6f8b; --neon:#3ee8ff; --fg:#d8f6ff; --dim:#6f8bab;
+          --ok:#3dff8a; --bad:#ff4d5e; --warn:#ffb347; --pink:#ff5ecb;
+          --px:"Press Start 2P", "Noto Sans Thai", "Sukhumvit Set", ui-monospace, Menlo, monospace; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; overflow-x:hidden; color:var(--fg); font:10px/1.6 var(--px);
+         background:var(--bg);
+         background-image:linear-gradient(#3ee8ff0a 1px, transparent 1px), linear-gradient(90deg, #3ee8ff0a 1px, transparent 1px);
+         background-size:24px 24px; }
+  body::after { content:""; position:fixed; inset:0; pointer-events:none; z-index:9;
+                background:repeating-linear-gradient(0deg, #0000 0 2px, #00000038 2px 3px); }
+  .px { box-shadow:0 -3px 0 0 var(--c,var(--line)), 0 3px 0 0 var(--c,var(--line)),
+                   -3px 0 0 0 var(--c,var(--line)), 3px 0 0 0 var(--c,var(--line)); }
+
+  header { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; justify-content:space-between;
+           margin:14px 14px 0; padding:12px 16px; background:var(--panel); }
+  h1 { margin:0; min-width:0; font-size:14px; color:var(--neon); display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; text-shadow:0 0 8px #3ee8ff88; }
+  h1 small { color:var(--dim); font-size:8px; text-shadow:none; overflow-wrap:anywhere; }
+  .logo { width:20px; height:20px; flex:none;
+          background:conic-gradient(var(--neon) 0 25%, var(--pink) 0 50%, var(--neon) 0 75%, #0000 0) 0 0/10px 10px; }
+  .right { display:flex; flex-wrap:wrap; align-items:center; gap:14px; }
+  .pill { padding:6px 10px; font-size:9px; background:#3dff8a14; color:var(--ok); --c:#3dff8a66; }
+  .pill.bad { background:#ff4d5e14; color:var(--bad); --c:#ff4d5e66; }
+  .pill b::before { content:"● "; }
+  #refresh { cursor:pointer; font:inherit; color:var(--cyan,#5fd7ff); border:1px solid #5fd7ff66; background:#5fd7ff14; transition:transform .1s; }
+  #refresh:active { transform:scale(.94); }
+  #refresh.syncing { animation:blink .5s steps(2) infinite; color:#ffd75f; border-color:#ffd75f66; background:#ffd75f14; }
+  @keyframes blink { 50% { opacity:.45; } }
+  .quota-ok { color:var(--ok,#3dff8a); }
+  .quota-warn { color:#ffd75f; }
+  .quota-full { color:var(--bad); }
+  #clock { font-size:16px; color:var(--neon); text-shadow:0 0 8px #3ee8ff88; font-variant-numeric:tabular-nums; }
+  #age { font-size:8px; } .stale { color:var(--bad); } .fresh { color:var(--dim); }
+
+  main { display:grid; gap:20px; margin:20px 14px; grid-template-columns:minmax(300px, 1fr) minmax(0, 1.7fr); }
+  @media (max-width:980px) { main { grid-template-columns:1fr; } }
+  section { background:var(--panel); padding:14px; min-width:0; max-width:100%; }
+  h2 { margin:-14px -14px 14px; padding:10px 14px; font-size:10px; color:var(--neon); font-weight:normal;
+       border-bottom:3px solid var(--line); letter-spacing:.05em; }
+
+  .cards { display:grid; gap:16px; grid-template-columns:repeat(auto-fill, minmax(min(150px, 100%), 1fr)); }
+  .card { position:relative; padding:12px 10px 10px; background:#121c33; text-align:center; min-width:0; --c:#2a4a6b; }
+  .card.on { --c:#2f8fae; }
+  .card .ava { width:44px; height:44px; margin:2px auto 8px; display:grid; place-items:center; font-size:28px;
+               background:#1b2a48; image-rendering:pixelated; }
+  .card .dot { position:absolute; top:8px; right:8px; width:8px; height:8px; background:var(--bad); box-shadow:0 0 6px var(--bad); }
+  .card.on .dot { background:var(--ok); box-shadow:0 0 6px var(--ok); }
+  .card .nm, .card .sub, .card .meta { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .card .nm { font-size:9px; color:var(--fg); }
+  .card .sub { font-size:7px; color:var(--dim); margin-top:4px; }
+  .card .meta { font-size:7px; color:var(--neon); margin-top:6px; opacity:.8; }
+  .card .st { font-size:7px; margin-top:6px; color:var(--bad); } .card.on .st { color:var(--ok); }
+  .empty { color:var(--dim); }
+  .err { color:var(--bad); font:11px/1.4 ui-monospace, Menlo, monospace; white-space:pre-wrap; margin-bottom:10px; }
+
+  /* ---- pixel office: one floor plane tilted isometric; boxes and billboards live in its 3D space ---- */
+  .stage { position:relative; max-width:100%; height:calc(470px * var(--s, 1)); overflow:hidden; }
+  .plane { position:absolute; left:50%; top:52%; width:600px; height:440px; margin:-220px 0 0 -300px;
+           transform-style:preserve-3d; transform:scale(var(--s, 1)) rotateX(60deg) rotateZ(45deg); }
+  .plane * { transform-style:preserve-3d; }
+  .room { position:absolute; }
+  .room.office { left:0; top:0; width:600px; height:250px;
+                 background:repeating-conic-gradient(#1c2a47 0 25%, #22345a 0 50%) 0 0/40px 40px; }
+  .room.server { left:0; top:262px; width:280px; height:178px;
+                 background:radial-gradient(#3ee8ff22, #0000 70%), #0c1322;
+                 background-image:radial-gradient(#3ee8ff2a, #0000 70%), linear-gradient(#3ee8ff22 1px, #0000 1px), linear-gradient(90deg, #3ee8ff22 1px, #0000 1px);
+                 background-size:auto, 20px 20px, 20px 20px; }
+  .room.kitchen { left:292px; top:262px; width:308px; height:178px;
+                  background:repeating-conic-gradient(#d9d2c5 0 25%, #b7ad9c 0 50%) 0 0/32px 32px; }
+  .wall { position:absolute; background:linear-gradient(#26375c, #1a2742); outline:2px solid #3ee8ff55;
+          color:#9fefff; font-size:9px; padding:6px 10px; white-space:nowrap; }
+  .wall.back { left:0; bottom:100%; width:100%; height:46px; transform-origin:bottom; transform:rotateX(-90deg); }
+  .wall.side { right:100%; top:0; width:46px; height:100%; transform-origin:right; transform:rotateY(90deg); }
+  .kitchen .wall { background:linear-gradient(#5b4a40, #43362f); color:#ffd9a8; }
+  .server .wall { background:linear-gradient(#141f36, #0d1527); }
+
+  .box { position:absolute; transform:translateZ(var(--h)); background:var(--top); }
+  .box::before, .box::after { content:""; position:absolute; }
+  .box::before { left:0; top:100%; width:100%; height:var(--h); background:var(--front); transform-origin:top; transform:rotateX(-90deg); }
+  .box::after { top:0; left:100%; height:100%; width:var(--h); background:var(--side); transform-origin:left; transform:rotateY(90deg); }
+  .desk { width:84px; height:40px; --h:16px; --top:#8a5a34; --front:#5e3b22; --side:#70472a; }
+  .mon { left:27px; top:4px; width:30px; height:5px; --h:22px; --top:#2b3550; --front:#0b0f1a; --side:#1c2438; }
+  .desk.on .mon { --front:#3ee8ff; } .desk.on .mon::before { box-shadow:0 0 14px #3ee8ff; }
+  .rack { width:44px; height:28px; --h:66px; --top:#2a3550; --side:#141c2e; --led:var(--ok); }
+  .rack::before { background:radial-gradient(circle, var(--led) 1.5px, #0000 2.5px) 0 0/8px 7px, #0f1729;
+                  box-shadow:0 0 16px -2px var(--led); animation:blink 1.3s steps(2) infinite; }
+  .rack:nth-child(2n)::before { animation-duration:.9s; }
+  .server.down .rack { --led:var(--bad); } .server.down .rack::before { animation:none; box-shadow:none; }
+  @keyframes blink { 50% { background-position:4px 3px, 0 0; } }
+  .counter { --top:#e8e2d6; --front:#7b5a44; --side:#93705a; }
+  .fridge { --top:#f4f6f8; --front:#cfd6de; --side:#b5bec8; }
+  .table { --top:#a8754a; --front:#6d4a2e; --side:#82593a; }
+  .bb { position:absolute; width:30px; height:30px; margin:-30px 0 0 -15px; font-size:24px; line-height:30px; text-align:center;
+        transform-origin:50% 100%; transform:translateZ(var(--z, 0px)) rotateZ(-45deg) rotateX(-60deg); }
+  .bb.agent { animation:bob 1.6s ease-in-out infinite; }
+  @keyframes bob { 50% { margin-top:-33px; } }
+
+  .stats { display:grid; gap:20px; margin:0 14px 20px; grid-template-columns:repeat(auto-fit, minmax(min(170px, 100%), 1fr)); }
+  .stat { display:flex; flex-wrap:wrap; min-width:0; align-items:flex-end; justify-content:space-between; gap:10px; padding:12px 14px; background:var(--panel); }
+  .stat .k { font-size:8px; color:var(--dim); } .stat .v { font-size:16px; margin-top:8px; overflow-wrap:anywhere; }
+  .stat .v small { font-size:8px; color:var(--dim); margin-left:6px; }
+  .stat canvas { height:36px; flex:1 1 40px; min-width:40px; max-width:110px; }  /* shrinks first, wraps under the number when the card is too narrow */
+  #v-sys { white-space:normal; font-size:9px; line-height:1.7; }
+
+  details { margin:0 14px 24px; background:var(--panel); padding:12px 14px; font:12px/1.5 ui-monospace, Menlo, monospace; }
+  summary { cursor:pointer; color:var(--neon); font:9px var(--px); }
+  details h3 { font:9px var(--px); color:var(--dim); margin:18px 0 8px; }
+  table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+  th, td { text-align:left; padding:4px 6px; border-bottom:1px solid #1f3350; vertical-align:top; }
+  th { color:var(--dim); font-weight:normal; } td.cmd { color:var(--dim); word-break:break-all; }
+  /* ---- NOW hero + activity feed ---- */
+  .now { display:flex; align-items:center; gap:18px; margin:20px 14px 0; padding:16px 20px; background:var(--panel); --c:#2f8fae; }
+  .now > div { min-width:0; }
+  .now .live { width:18px; height:18px; flex:none; background:var(--ok); box-shadow:0 0 12px var(--ok); animation:pulse 1.2s ease-in-out infinite; }
+  .now.stale { --c:#ff4d5e88; } .now.stale .live { background:var(--bad); box-shadow:0 0 12px var(--bad); animation:none; }
+  @keyframes pulse { 50% { opacity:.35; transform:scale(.7); } }
+  .now .k { font-size:9px; color:var(--dim); }
+  #now-text { font-size:18px; color:var(--neon); text-shadow:0 0 10px #3ee8ff88; margin:8px 0; overflow-wrap:anywhere; }
+  .now.stale #now-text { color:var(--bad); text-shadow:none; }
+  #now-detail { font:13px/1.4 ui-monospace, Menlo, monospace; color:var(--fg); word-break:break-word; }
+  #now-age { font-size:8px; color:var(--dim); margin-top:8px; } .now.stale #now-age { color:var(--bad); }
+  .now.idle { --c:#34405a; } .now.idle .live { background:var(--dim); box-shadow:none; animation:none; }
+  .now.idle #now-text { color:var(--dim); text-shadow:none; font-size:13px; }
+  /* ---- WORKING NOW: live claude/codex transcripts + hermes' current step ---- */
+  #working { list-style:none; margin:0; padding:0; }
+  #working li { display:grid; grid-template-columns:14px 78px minmax(0, 170px) minmax(0, 1fr) 190px; gap:14px; align-items:center;
+                padding:10px 6px; border-bottom:1px solid #1f3350; }
+  #working .live { width:12px; height:12px; background:var(--ok); box-shadow:0 0 10px var(--ok); animation:pulse 1.2s ease-in-out infinite; }
+  #working .kb { font:8px/20px var(--px); text-align:center; color:var(--b); outline:2px solid var(--b); }
+  .kb-claude { --b:#ff9a5e; } .kb-codex { --b:#3dff8a; } .kb-hermes { --b:#3ee8ff; }
+  #working .pj { font-size:10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #working .ac { font:14px/1.4 ui-monospace, Menlo, monospace; color:var(--neon); word-break:break-word; }
+  #working .ag { font-size:8px; color:var(--dim); text-align:right; }
+  #working li.empty { display:block; color:var(--dim); font-size:10px; padding:14px 6px; }
+  @media (max-width:760px) { #working li { grid-template-columns:14px 78px minmax(0, 1fr); }
+    #working .ac, #working .ag { grid-column:2 / -1; text-align:left; } }
+  .k-turn { --k:var(--pink) !important; }
+  .feed-wrap { margin:20px 14px 0; }
+  #feed { list-style:none; margin:0; padding:0; font:12px/1.5 ui-monospace, Menlo, monospace; max-height:40vh; overflow:hidden auto; }
+  #feed li { display:grid; grid-template-columns:70px 92px 70px minmax(0, 1fr); gap:10px; padding:3px 4px; border-bottom:1px solid #1f3350; --k:var(--dim); }
+  #feed li.new { animation:flash 1.5s ease-out; }
+  @keyframes flash { from { background:#3ee8ff33; } }
+  #feed .t { color:var(--dim); font-variant-numeric:tabular-nums; } #feed .s { color:var(--dim); }
+  #feed .b { color:var(--k); font:7px/18px var(--px); text-align:center; background:#0000; outline:2px solid var(--k); }
+  #feed .d { color:var(--k); word-break:break-word; overflow-wrap:anywhere; }
+  .k-tool { --k:#3ee8ff !important; } .k-api { --k:#5b8cff !important; } .k-message_in { --k:#3dff8a !important; }
+  .k-message_out { --k:#ffd84d !important; } .k-tool_error { --k:#ff4d5e !important; } .k-other { --k:var(--warn) !important; }
+  .card .say { font:8px/1.4 ui-monospace, Menlo, monospace; margin:8px auto 0; padding:2px 6px; max-width:100%; width:max-content;
+               background:#d8f6ff; color:#0a0e1a; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; position:relative; }
+  .card .say::before { content:""; position:absolute; top:-4px; left:50%; margin-left:-4px; border:4px solid #0000; border-top:0; border-bottom-color:#d8f6ff; }
+  .bubble { position:absolute; left:50%; bottom:100%; margin-left:-12px; width:24px; height:20px; font-size:12px; line-height:20px;
+            background:#fff; box-shadow:0 0 10px 2px #3ee8ffcc; animation:glow 1.4s ease-in-out infinite; }
+  .bubble::after { content:""; position:absolute; top:100%; left:8px; border:4px solid #0000; border-top-color:#fff; }
+  @keyframes glow { 50% { box-shadow:0 0 18px 5px #3ee8ff; } }
+  /* ---- sleeping agents: sessions left open but unused 30+ min ---- */
+  #sleep { list-style:none; margin:0; padding:0; font:12px/1.5 ui-monospace, Menlo, monospace; max-height:320px; overflow:auto; }
+  #sleep li { display:grid; grid-template-columns:24px minmax(0, 1fr) 130px; gap:10px; align-items:center;
+              padding:4px; border-bottom:1px solid #1f3350; color:var(--dim); }
+  #sleep li.empty { display:block; }
+  #sleep .nm { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; } #sleep .nm { color:var(--fg); }
+  .badge { font:7px/16px var(--px); padding:0 6px; margin-left:8px; color:var(--b); outline:2px solid var(--b); }
+  .badge.b-stale { --b:var(--bad); } .badge.b-long { --b:var(--warn); }
+  .card.sleep { --c:#34405a; }
+  .card.sleep > :not(.zzz) { filter:grayscale(1); opacity:.45; }
+  .card.sleep .st { color:var(--dim); }
+  .card .zzz { position:absolute; top:6px; right:8px; font:8px var(--px); color:#9fb8ff; animation:zzz 2s ease-in-out infinite; }
+  .bb.sleep::after { content:"💤"; position:absolute; left:55%; bottom:75%; font-size:13px; line-height:1; animation:zzz 2s ease-in-out infinite; }
+  @keyframes zzz { 50% { transform:translate(3px, -4px); opacity:.4; } }
+  /* ---- OVERVIEW: gateway strip + AGENTS / TOOLS / SESSIONS tabs ---- */
+  .gw { display:flex; align-items:center; gap:10px; margin:0 0 16px; padding:8px 10px; background:#121c33; cursor:pointer; --c:#2f8fae; font-size:8px; }
+  .gw .dot { width:8px; height:8px; flex:none; background:var(--ok); box-shadow:0 0 6px var(--ok); }
+  .gw.down { --c:#ff4d5e88; } .gw.down .dot { background:var(--bad); box-shadow:0 0 6px var(--bad); }
+  .gw .say { margin-left:auto; font:8px ui-monospace, Menlo, monospace; color:var(--neon); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .tabs { display:flex; flex-wrap:wrap; gap:12px; margin:0 0 16px; }
+  .tab { font:8px var(--px); padding:7px 10px; cursor:pointer; color:var(--dim); background:#121c33; border:0; --c:#2a4a6b; }
+  .tab.on { color:var(--bg); background:var(--neon); --c:var(--neon); }
+  .card.tool { --c:#3a5566 !important; background:#0f1828; outline:2px dashed #5fd7ff55; outline-offset:-6px; }
+  .card.tool > :not(.dot) { opacity:.6; } .card.tool .st { color:#5fd7ff; }
+  .hint { margin-top:14px; font-size:7px; color:var(--dim); }
+  /* ---- narrow screens: tighter margins, smaller pixel font, feed detail on its own line ---- */
+  @media (max-width:600px) {
+    body { font-size:9px; }
+    header, .now, .feed-wrap, main, .stats { margin-left:8px; margin-right:8px; }
+    main, .stats { gap:14px; }
+    section { padding:10px; } h2 { margin:-10px -10px 10px; padding:8px 10px; }
+    header { padding:10px; } .right { gap:10px; }
+    h1 { font-size:11px; } #clock { font-size:12px; }
+    .now { padding:12px; gap:12px; } #now-text { font-size:13px; } .stat .v { font-size:14px; }
+    #feed li { grid-template-columns:64px 84px minmax(0, 1fr); gap:2px 8px; } #feed .d { grid-column:1 / -1; }
+    #sleep li { grid-template-columns:24px minmax(0, 1fr); } #sleep li > :last-child { grid-column:2; }
+  }
+</style>
+</head>
+<body>
+<header class="px">
+  <h1><span class="logo"></span>HERMES DASHBOARD <small id="host">—</small></h1>
+  <div class="right">
+    <span id="age" class="fresh">loading…</span>
+    <button id="refresh" class="pill px" title="ซิงค์ข้อมูลจริง: เก็บสถานะใหม่จากเครื่อง + push (ปุ่ม S หรือ R)">⟳ SYNC</button>
+    <span id="quota" class="pill px quota-ok" title="GitHub Pages build ที่ใช้ไปในชั่วโมงนี้">⚙ 0/9</span>
+    <label class="pill px" style="cursor:pointer"><input type="checkbox" id="auto" style="vertical-align:middle"> AUTO 20s</label>
+    <span id="pill" class="pill px bad"><b id="active">0 AGENTS ACTIVE</b></span>
+    <span id="clock">--:--:--</span>
+  </div>
+</header>
+<section class="px feed-wrap"><h2>WORKING NOW</h2><div id="working-err"></div><ul id="working"></ul></section>
+<section id="now" class="now px stale"><span class="live"></span><div>
+  <div class="k">NOW</div><div id="now-text">HERMES IS…</div><div id="now-detail">—</div><div id="now-age">loading…</div>
+</div></section>
+<section class="px feed-wrap"><h2>ACTIVITY FEED</h2><div id="feed-err"></div><ul id="feed"></ul></section>
+<section class="px feed-wrap"><h2>SLEEPING AGENTS · <span id="idle-n">0</span></h2><ul id="sleep"></ul></section>
+<main>
+  <section class="px"><h2>OVERVIEW</h2><div id="errs"></div>
+    <div id="gw" class="gw px down" title="open RAW DETAIL"><span class="dot"></span><span id="gw-text">🛰️ GATEWAY · —</span><span id="gw-tool" class="say"></span></div>
+    <div class="tabs"><button class="tab px" data-tab="agents">AGENTS (<span id="n-agents">0</span>)</button>
+      <button class="tab px" data-tab="tools">TOOLS (<span id="n-tools">0</span>)</button>
+      <button class="tab px" data-tab="sessions">SESSIONS (<span id="n-sessions">0</span>)</button></div>
+    <div id="cards" class="cards"></div><div id="tab-hint" class="hint"></div></section>
+  <section class="px"><h2>PIXEL OFFICE</h2><div id="stage" class="stage"><div id="plane" class="plane"></div></div></section>
+</main>
+<div class="stats">
+  <div class="stat px"><div><div class="k">SESSIONS</div><div class="v" id="v-sessions">—</div></div><canvas id="c-sessions"></canvas></div>
+  <div class="stat px"><div><div class="k" id="k-messages">MESSAGES</div><div class="v" id="v-messages">—</div></div><canvas id="c-messages"></canvas></div>
+  <div class="stat px"><div><div class="k">CPU LOAD</div><div class="v" id="v-cpu">—</div></div><canvas id="c-cpu"></canvas></div>
+  <div class="stat px"><div><div class="k">TOKENS / COST</div><div class="v" id="v-tokens">—</div></div><canvas id="c-tokens"></canvas></div>
+  <div class="stat px"><div><div class="k">SYSTEM</div><div class="v" id="v-sys">—</div></div></div>
+</div>
+<script>
+const IDLE_S = 1800, LONG_IDLE_S = 6 * 3600, STALE_IDLE_S = 86400, STALE_S = 90, POLL_MS = 20000, NOW_STALE_S = 60, HKEY = "hermes-dash-hist";
+const AVATAR = {claude:"🤖", codex:"🧑‍💻", hermes:"🪽"};
+const SHELLS = new Set(["sh", "zsh", "bash", "fish", "osascript", "node", "tail", "tee"]);
+let data = null;
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const dur = s => { if (s == null || typeof s !== "number") return "—";
+  const d = Math.floor(s/86400), h = Math.floor(s%86400/3600), m = Math.floor(s%3600/60);
+  return d ? `${d}d ${h}h` : h ? `${h}h ${m}m` : m ? `${m}m ${s%60}s` : `${s}s`; };
+const gb = b => (b/1073741824).toFixed(1) + " GB";
+const num = n => n == null ? "—" : n >= 1e6 ? (n/1e6).toFixed(1) + "M" : n >= 1e3 ? (n/1e3).toFixed(1) + "K" : String(Math.round(n));
+const err = (name, sec) => sec && sec.error ? `<div class="err">${esc(name)}: ${esc(sec.error)}</div>` : "";
+const TOOL_EMOJI = [[/terminal|shell|process|exec/, "💻"], [/file|read|write|patch|edit/, "📝"], [/search|web|fetch/, "🔎"],
+  [/browser|cdp/, "🌐"], [/memory|skill/, "🧠"], [/image|video|vision/, "🖼️"], [/send|message|telegram/, "✉️"], [/^api$/, "💭"]];
+const toolEmoji = t => (TOOL_EMOJI.find(([re]) => re.test(t || "")) || [0, "🔧"])[1];
+const VERB = {tool:"RUNNING A TOOL", tool_error:"HITTING AN ERROR", api:"THINKING", message_in:"READING A MESSAGE",
+              message_out:"REPLYING", turn:"STARTING A TURN", other:"WORKING"};
+const ACTIVE_S = 300;  // same window as the collector: older than this = nobody asked Hermes for anything
+const hms = ts => new Date(ts * 1000).toLocaleTimeString("en-GB");
+const act = () => data?.activity && !data.activity.error ? data.activity : {};
+const sessTool = id => act().last_tool?.[id];
+const idleFor = s => s >= 3600 ? dur(s) : Math.round(s / 60) + "m";
+
+// Every "agent": the gateway, each live claude/codex/hermes program (not its shells), each session active in the last hour.
+function agents(d) {
+  const g = d.gateway || {}, out = [{kind:"gateway", emoji:"🛰️", name:"GATEWAY", on:!!g.running,
+    sub: g.running ? `pid ${g.pid ?? "?"}` : "stopped", meta: g.running ? "up " + dur(g.uptime_s) : "hermes"}];
+  const cur = act().current;
+  if (cur && Date.now() / 1000 - cur.ts <= NOW_STALE_S) out[0].tool = cur.tool || cur.kind;
+  for (const p of d.processes?.items || [])
+    if (!SHELLS.has(p.name) && p.name !== "GATEWAY" && p.pid !== g.pid) {  // gateway has its own strip
+      const daemon = p.role === "daemon";
+      out.push({kind:p.kind, emoji:AVATAR[p.kind] || "⚙️", name:`${p.name || p.kind} ${p.pid}`.toUpperCase(), on:true, daemon,
+                sub:p.cmd, meta:`${p.cpu}% cpu · ${dur(p.uptime_s)}`});
+    }
+  const chat = new Set(act().chat_sessions || []);  // only the telegram chat gets a card; idle ones live in SLEEPING AGENTS
+  for (const s of d.sessions?.items || []) {
+    const t = s.idle_s ?? Infinity;  // null = unparseable: never treat it as 0
+    if (chat.has(s.id)) out.push({kind:"session", emoji:"💬", name:s.title, on:t <= 600,
+                             sleep:t > IDLE_S, sub:`#${s.id} · ${s.last_active}`, meta:"#" + s.id, tool:sessTool(s.id)});
+  }
+  return out;
+}
+
+// SESSIONS tab: every hermes session, sleeping ones dimmed with zzz.
+const sessionCards = d => (d.sessions?.items || []).map(s => { const t = s.idle_s ?? Infinity;
+  return {kind:"session", emoji:"💬", name:s.title, on:t <= 600, sleep:t > IDLE_S,
+          sub:"#" + s.id, meta:t === Infinity ? s.last_active ?? "—" : "idle " + idleFor(t), tool:sessTool(s.id)}; });
+
+const TABS = {agents:["no agents running", ""], tools:["no helper daemons", "background helper processes — always running, not doing user tasks"],
+              sessions:["no hermes sessions", ""]};
+const TAB_KEY = "hermes-dash-tab";
+let tab = Object.hasOwn(TABS, localStorage.getItem(TAB_KEY)) ? localStorage.getItem(TAB_KEY) : "agents", tabLists = null;
+function renderTab() {
+  document.querySelectorAll(".tab").forEach(b => b.classList.toggle("on", b.dataset.tab === tab));
+  if (!tabLists) return;
+  for (const k in TABS) $("n-" + k).textContent = tabLists[k].length;
+  renderCards(tabLists[tab], TABS[tab][0]);
+  $("tab-hint").textContent = TABS[tab][1];
+}
+
+function renderCards(list, empty) {
+  $("cards").innerHTML = list.map(a => `<div class="card px ${a.on ? "on" : a.sleep ? "sleep" : ""}${a.daemon ? " tool" : ""}" title="${esc(a.sub)}">
+    ${a.sleep ? `<span class="zzz">zzz</span>` : `<span class="dot"></span>`}<div class="ava">${a.emoji}</div><div class="nm">${esc(a.name)}</div>
+    <div class="sub">${esc(a.sub)}</div><div class="meta">${esc(a.meta)}</div>
+    ${a.tool ? `<div class="say">${toolEmoji(a.tool)} ${esc(a.tool)}</div>` : ""}
+    <div class="st">${a.on ? (a.daemon ? "daemon · tool" : "online") : a.sleep ? "sleeping" : "offline"}</div></div>`).join("") || `<div class="empty">${esc(empty)}</div>`;
+}
+
+const box = (cls, x, y, w, h, z, inner = "") =>
+  `<div class="box ${cls}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;--h:${z}px">${inner}</div>`;
+const bb = (a, x, y, z = 0, cls = "agent") =>
+  `<div class="bb ${cls}" style="left:${x}px;top:${y}px;--z:${z}px" title="${esc(a.name)}${a.tool ? " · " + esc(a.tool) : ""}">${a.emoji}${a.tool ? `<span class="bubble">${toolEmoji(a.tool)}</span>` : ""}</div>`;
+
+function renderOffice(list) {
+  const gw = list[0], workers = list.slice(1).filter(a => a.on), idle = list.slice(1).filter(a => !a.on);
+  const n = Math.min(12, Math.max(8, workers.length));
+  let desks = "";
+  for (let i = 0; i < n; i++) {
+    const a = workers[i], x = 38 + (i % 4) * 138, y = 26 + Math.floor(i / 4) * 76;
+    desks += `<div class="box desk ${a ? "on" : ""}" style="left:${x}px;top:${y}px">
+      <div class="box mon"></div>${a ? bb(a, 42, 52, 0) : ""}</div>`;
+  }
+  let racks = "";
+  for (let i = 0; i < 6; i++) racks += box("rack", 30 + (i % 3) * 78, 34 + Math.floor(i / 3) * 74, 44, 28, 66);
+  const seats = [[150, 118], [250, 118], [200, 152], [200, 84]];
+  $("plane").innerHTML = `
+    <div class="room office"><div class="wall back">MAIN OFFICE</div><div class="wall side"></div>${desks}</div>
+    <div class="room server ${gw.on ? "" : "down"}"><div class="wall back">SERVER ROOM</div><div class="wall side"></div>
+      ${racks}${gw.on ? bb(gw, 250, 150) : ""}</div>
+    <div class="room kitchen"><div class="wall back">KITCHEN</div><div class="wall side"></div>
+      ${box("counter", 10, 8, 200, 30, 30, bb({emoji:"☕", name:"coffee"}, 40, 20, 0, ""))}
+      ${box("fridge", 250, 8, 40, 34, 74)}
+      ${box("table", 160, 80, 90, 50, 18)}
+      ${bb({emoji:"🪴", name:"plant"}, 285, 165, 0, "")}
+      ${idle.slice(0, 4).map((a, i) => bb({...a, emoji:"😴", tool:null}, ...seats[i], 0, "sleep")).join("")}</div>`;
+}
+
+function history(d, s) {
+  let h; try { h = JSON.parse(localStorage.getItem(HKEY)) || []; } catch { h = []; }
+  if (!h.length || h[h.length - 1].t !== d.generated_at) {  // the page polls twice per collector run; one sample per run
+    h = [...h, {t:d.generated_at, ...s}].slice(-30);
+    try { localStorage.setItem(HKEY, JSON.stringify(h)); } catch {}
+  }
+  return h;
+}
+
+function spark(id, vals, color) {
+  const c = $(id), r = devicePixelRatio || 1, w = c.clientWidth, h = c.clientHeight, x = c.getContext("2d");
+  c.width = w * r; c.height = h * r; x.scale(r, r); x.clearRect(0, 0, w, h);
+  vals = vals.filter(v => typeof v === "number");
+  if (vals.length < 2) return;
+  const lo = Math.min(...vals), hi = Math.max(...vals), span = hi - lo || 1;
+  const pts = vals.map((v, i) => [i * w / (vals.length - 1), h - 3 - (v - lo) / span * (h - 6)]);
+  x.beginPath(); pts.forEach(([px, py], i) => i ? x.lineTo(px, py) : x.moveTo(px, py));
+  x.strokeStyle = color; x.lineWidth = 2; x.shadowColor = color; x.shadowBlur = 6; x.stroke();
+  x.lineTo(w, h); x.lineTo(0, h); x.closePath(); x.shadowBlur = 0; x.fillStyle = color + "33"; x.fill();
+}
+
+function renderStats() {
+  const u = data.usage && !data.usage.error ? data.usage : {}, sys = data.system || {}, items = data.sessions?.items || [];
+  const s = {sessions: u.sessions ?? items.length, messages: u.messages ?? items.length,
+             cpu: sys.load && sys.ncpu ? Math.round(sys.load[0] * 100 / sys.ncpu) : null, tokens: u.tokens ?? null};
+  const h = history(data, s);
+  $("v-sessions").textContent = num(s.sessions);
+  $("k-messages").textContent = u.messages != null ? "MESSAGES" : "TOTAL SESSIONS";
+  $("v-messages").textContent = num(s.messages);
+  $("v-cpu").textContent = s.cpu == null ? "—" : s.cpu + "%";
+  $("v-tokens").innerHTML = esc(num(s.tokens)) + (u.cost_usd != null ? `<small>$${esc(u.cost_usd.toFixed(2))}</small>` : "");
+  [["sessions", "#3ee8ff"], ["messages", "#3dff8a"], ["cpu", "#ff5ecb"], ["tokens", "#ffb347"]]
+    .forEach(([k, col]) => spark("c-" + k, h.map(e => e[k]), col));
+}
+
+const table = (rows, cols) => rows.length
+  ? `<table><tr>${cols.map(c => `<th>${c[0]}</th>`).join("")}</tr>${rows.map(r =>
+      `<tr>${cols.map(c => `<td class="${c[2]||""}">${c[1](r)}</td>`).join("")}</tr>`).join("")}</table>`
+  : `<div class="empty">none</div>`;
+
+function renderSysCard() {
+  const sys = data.system || {}, mem = sys.memory || {}, disk = sys.disk || {};
+  $("v-sys").textContent = sys.load?.length
+    ? `RAM ${mem.pct ?? "—"}% · disk ${disk.pct_used ?? "—"}% · up ${dur(sys.uptime_s)}`
+    : "—";
+}
+
+function render() {
+  $("host").textContent = data.system?.hostname || "";
+  const list = agents(data), gw = list[0], rest = list.slice(1);
+  tabLists = {agents:rest.filter(a => !a.daemon), tools:rest.filter(a => a.daemon), sessions:sessionCards(data)};
+  const on = tabLists.agents.filter(a => a.on).length;  // gateway and daemons never count
+  $("active").textContent = `${on} AGENT${on === 1 ? "" : "S"} ACTIVE`;
+  $("pill").className = "pill px" + (data.gateway?.running ? "" : " bad");
+  $("errs").innerHTML = ["gateway", "sessions", "cron", "processes", "system", "usage"].map(k => err(k, data[k])).join("");
+  $("gw").className = "gw px" + (gw.on ? "" : " down");
+  $("gw-text").textContent = `🛰️ GATEWAY · ${gw.sub}${gw.on ? " · " + gw.meta : ""}`;
+  $("gw-tool").textContent = gw.tool ? `${toolEmoji(gw.tool)} ${gw.tool}` : "";
+  renderTab(); renderOffice(list); renderFeed(); renderSleep(); renderStats(); renderSysCard(); fit();  // new content can add a scrollbar and narrow the stage
+}
+
+let seen = null;  // feed keys already shown; new ones flash (null on first load: nothing flashes)
+function renderFeed() {
+  const a = data.activity || {}, evs = a.events || [];
+  $("feed-err").innerHTML = err("activity", a);
+  const key = e => `${e.ts}|${e.kind}|${e.detail}`, prev = seen;
+  seen = new Set(evs.map(key));
+  $("feed").innerHTML = evs.map(e => `<li class="k-${esc(e.kind)}${prev && !prev.has(key(e)) ? " new" : ""}" title="${esc(e.iso)}">
+    <span class="t">${hms(e.ts)}</span><span class="b">${esc(e.kind.replace("_", " ").toUpperCase())}</span>
+    <span class="s">${esc((e.session || "gateway").slice(-8))}</span><span class="d">${esc(e.detail)}</span></li>`).join("")
+    || `<li class="empty">no activity in the log tail</li>`;
+}
+
+function renderSleep() {
+  const idle = data.idle_sessions || [];
+  $("idle-n").textContent = idle.length;
+  $("sleep").innerHTML = idle.map(s => `<li title="${esc(s.last_active)}"><span>💤</span>
+    <span class="nm">${esc(s.title)} #${esc(s.id)} · idle ${idleFor(s.idle_s)}${s.idle_s > STALE_IDLE_S ? `<span class="badge b-stale">STALE</span>`
+      : s.idle_s > LONG_IDLE_S ? `<span class="badge b-long">LONG IDLE</span>` : ""}</span>
+    <span>${esc(s.last_active)}</span></li>`).join("")
+    || `<li class="empty">everyone is busy or nothing left open ✨</li>`;
+}
+
+const hermesAge = () => { const c = act().current; return c ? Math.max(0, Math.round(Date.now() / 1000 - c.ts)) : null; };
+const hermesBusy = () => hermesAge() != null && hermesAge() <= ACTIVE_S;
+
+function renderWorking() {
+  const now = Date.now() / 1000, w = data.working || {}, c = act().current;
+  const rows = (w.items || []).map(i => ({...i, age: Math.max(0, Math.round(now - Date.parse(i.mtime_iso) / 1000))}));
+  if (hermesBusy()) rows.unshift({kind:"hermes", project:c.session ? "session #" + c.session : "gateway",
+    action:(c.tool ? toolEmoji(c.tool) + " " : "") + c.detail, age:hermesAge()});
+  $("working-err").innerHTML = err("working", w);
+  $("working").innerHTML = rows.map(r => `<li title="${esc(r.pid ? "pid " + r.pid : "")}"><span class="live"></span>
+    <span class="kb kb-${esc(r.kind)}">${esc(r.kind.toUpperCase())}</span><span class="pj">${esc(r.project)}</span>
+    <span class="ac">${esc(r.action)}</span><span class="ag">running · ${dur(r.age)} ago${r.alive_s != null ? "<br>up " + dur(r.alive_s) : ""}</span></li>`).join("")
+    || `<li class="empty">💤 Nothing is running right now</li>`;
+}
+
+function tickNow() {
+  const c = act().current, age = hermesAge(), idle = !hermesBusy();
+  const stale = !idle && Date.now() / 1000 - data.generated_at > STALE_S;  // red only when real work is live but the data is old
+  $("now").className = "now px" + (idle ? " idle" : stale ? " stale" : "");
+  $("now-text").textContent = idle ? "HERMES IS IDLE — ไม่มีงานที่คุณสั่งรันอยู่" : "HERMES IS " + (VERB[c.kind] || "WORKING");
+  $("now-detail").textContent = c ? (idle ? "last: " : "") + (c.tool ? toolEmoji(c.tool) + " " : "") + c.detail
+    : (data?.activity?.error || "no recent activity");
+  $("now-age").textContent = c ? `age: ${dur(age)} ago · ${hms(c.ts)}${c.session ? " · " + c.session.slice(-8) : ""}` : "age: —";
+}
+
+async function sync(force) {
+  const btn = $("refresh");
+  if (btn.dataset.busy) return;
+  if (quotaState.used >= quotaState.limit) {
+    flashAge("SYNC quota exhausted this hour — button locked until the hour rolls over");
+    return;
+  }
+  btn.dataset.busy = "1";
+  btn.classList.add("syncing");
+  const old = btn.textContent;
+  btn.textContent = force ? "⏳ SYNCING…" : "⟳ …";
+  try {
+    if (force) {
+      try {
+        const t = await fetch("http://127.0.0.1:8787/sync", {cache: "no-store", signal: AbortSignal.timeout(20000)});
+        const j = await t.json();
+        if (j && j.quota) updateQuota(j.quota.used, j.quota.limit);
+        if (j && j.quota && j.quota.used >= j.quota.limit) {
+          btn.textContent = "⛔ SYNC LIMIT";
+          flashAge("SYNC quota exhausted this hour — try again in a few minutes");
+        }
+      } catch (_) { /* no local trigger daemon: just refetch */ }
+    }
+    await load();
+  } finally {
+    btn.dataset.busy = "";
+    btn.classList.remove("syncing");
+    if (btn.textContent !== "⛔ SYNC LIMIT") btn.textContent = old;
+  }
+}
+const quotaState = {used: 0, limit: 9};
+function updateQuota(used, limit) {
+  quotaState.used = used; quotaState.limit = limit;
+  const el = $("quota");
+  el.textContent = `⚙ ${used}/${limit}`;
+  el.className = "pill px " + (used >= limit ? "quota-full" : used >= limit - 2 ? "quota-warn" : "quota-ok");
+  const btn = $("refresh");
+  if (used >= limit) { btn.textContent = "⛔ SYNC LIMIT"; btn.title = "โควตา build ชั่วโมงนี้หมดแล้ว"; }
+}
+function flashAge(msg) {
+  const el = $("age"); const old = el.textContent;
+  el.textContent = "⚠ " + msg;
+  setTimeout(() => { if (el.textContent === "⚠ " + msg) tick(); }, 6000);
+}
+function fit() { const s = $("stage"); s.style.setProperty("--s", Math.min(1, s.clientWidth / 760)); }
+
+function tick() {
+  $("clock").textContent = new Date().toLocaleTimeString("en-GB");
+  if (!data) return;
+  tickNow(); renderWorking();
+  const el = $("age"), age = Math.max(0, Math.round(Date.now() / 1000 - data.generated_at));
+  el.textContent = (age > STALE_S ? "⚠ STALE · " : "") + `updated ${dur(age)} ago`;
+  el.title = data.generated_at_iso;
+  el.className = age > STALE_S ? "stale" : "fresh";
+}
+
+async function load() {
+  try {
+    const r = await fetch("status.json?t=" + Date.now(), {cache: "no-store"});
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    data = await r.json();
+    render();
+    tick();
+  } catch (e) {
+    tick();
+    $("age").textContent = "⚠ fetch failed: " + e.message;
+    $("age").className = "stale";
+  }
+}
+fit(); addEventListener("resize", fit);
+let autoTimer = null;
+const AUTO_KEY = "hermes-dash-auto";
+const autoBox = $("auto");
+autoBox.checked = localStorage.getItem(AUTO_KEY) === "1";
+function setAuto() {
+  clearInterval(autoTimer);
+  if (autoBox.checked) {
+    localStorage.setItem(AUTO_KEY, "1");
+    autoTimer = setInterval(load, POLL_MS);
+  } else localStorage.removeItem(AUTO_KEY);
+}
+autoBox.addEventListener("change", setAuto);
+$("refresh").addEventListener("click", () => sync(true));
+document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+  tab = b.dataset.tab; try { localStorage.setItem(TAB_KEY, tab); } catch {} renderTab(); }));
+$("gw").addEventListener("click", () => { document.querySelector("#now")?.scrollIntoView({behavior:"smooth"}); });
+renderTab();
+addEventListener("keydown", e => { if ((e.key === "r" || e.key === "R" || e.key === "s" || e.key === "S") && !e.metaKey && !e.ctrlKey) sync(true); });
+load(); setAuto();
+setInterval(tick, 1000);
+</script>
+</body>
+</html>
