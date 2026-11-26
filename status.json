@@ -1,18 +1,18 @@
 {
- "generated_at": 1795699951,
- "generated_at_iso": "2026-11-26T20:32:31+07:00",
+ "generated_at": 1795700389,
+ "generated_at_iso": "2026-11-26T20:39:49+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 23301
+  "uptime_s": 23740
  },
  "sessions": {
   "items": [
    {
     "title": "Telegram chat",
-    "last_active": "just now",
-    "idle_s": 0,
+    "last_active": "4m ago",
+    "idle_s": 240,
     "id": "s77ccf95"
    }
   ]
@@ -27,40 +27,29 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.1,
-    "uptime_s": 984,
+    "uptime_s": 1423,
     "kind": "hermes",
     "name": "SYNC TRIGGER",
     "role": "daemon",
     "cmd": "dashboard-trigger.py"
    },
    {
-    "pid": 14525,
+    "pid": 17229,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.3,
-    "uptime_s": 407,
+    "uptime_s": 266,
     "kind": "hermes",
     "name": "BROWSER TOOL",
     "role": "daemon",
     "cmd": "browser_harness.daemon"
    },
    {
-    "pid": 15286,
-    "ppid": 42494,
-    "cpu": 0.0,
-    "mem": 0.0,
-    "uptime_s": 272,
-    "kind": "hermes",
-    "name": "bash",
-    "role": "agent",
-    "cmd": "bash"
-   },
-   {
     "pid": 42488,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 23302,
+    "uptime_s": 23741,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -71,7 +60,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 23302,
+    "uptime_s": 23741,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -80,9 +69,9 @@
    {
     "pid": 42494,
     "ppid": 42489,
-    "cpu": 1.0,
-    "mem": 2.8,
-    "uptime_s": 23302,
+    "cpu": 0.9,
+    "mem": 2.7,
+    "uptime_s": 23741,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -93,7 +82,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 22366,
+    "uptime_s": 22805,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -104,43 +93,118 @@
  "system": {
   "hostname": "home-mac",
   "load": [
-   1.76,
    2.03,
-   1.98
+   1.98,
+   1.97
   ],
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 10059464704,
-   "pct": 58.6
+   "used": 10196762624,
+   "pct": 59.4
   },
   "disk": {
    "total": 494384795648,
-   "free": 360672870400,
+   "free": 360654299136,
    "pct_used": 27.0
   },
-  "uptime_s": 102997
+  "uptime_s": 103436
  },
  "usage": {
   "sessions": 1,
-  "messages": 747,
-  "tokens": 1241509,
-  "cost_usd": 1.33
+  "messages": 753,
+  "tokens": 1248502,
+  "cost_usd": 1.35
  },
  "working": {
   "items": []
  },
  "activity": {
   "current": {
-   "ts": 1795699757,
-   "iso": "2026-11-26T20:29:17+07:00",
+   "ts": 1795700163,
+   "iso": "2026-11-26T20:36:03+07:00",
    "level": "WARNING",
    "session": null,
    "kind": "other",
    "detail": "warning: browser_supervisor",
-   "age_s": 196
+   "age_s": 229
   },
   "events": [
+   {
+    "ts": 1795700163,
+    "iso": "2026-11-26T20:36:03+07:00",
+    "level": "WARNING",
+    "session": null,
+    "kind": "other",
+    "detail": "warning: browser_supervisor"
+   },
+   {
+    "ts": 1795700147,
+    "iso": "2026-11-26T20:35:47+07:00",
+    "level": "INFO",
+    "session": null,
+    "kind": "message_out",
+    "detail": "message out (telegram)"
+   },
+   {
+    "ts": 1795700147,
+    "iso": "2026-11-26T20:35:47+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 8.8s"
+   },
+   {
+    "ts": 1795700138,
+    "iso": "2026-11-26T20:35:38+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "browser_exec",
+    "detail": "browser_exec"
+   },
+   {
+    "ts": 1795700123,
+    "iso": "2026-11-26T20:35:23+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 4.4s"
+   },
+   {
+    "ts": 1795700119,
+    "iso": "2026-11-26T20:35:19+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "browser_exec",
+    "detail": "browser_exec"
+   },
+   {
+    "ts": 1795700117,
+    "iso": "2026-11-26T20:35:17+07:00",
+    "level": "WARNING",
+    "session": null,
+    "kind": "other",
+    "detail": "warning: browser_supervisor"
+   },
+   {
+    "ts": 1795699966,
+    "iso": "2026-11-26T20:32:46+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 6.0s"
+   },
+   {
+    "ts": 1795699960,
+    "iso": "2026-11-26T20:32:40+07:00",
+    "level": "WARNING",
+    "session": "s77ccf95",
+    "kind": "tool_error",
+    "tool": "terminal",
+    "detail": "tool error: terminal"
+   },
    {
     "ts": 1795699757,
     "iso": "2026-11-26T20:29:17+07:00",
@@ -233,86 +297,10 @@
     "kind": "tool",
     "tool": "browser_exec",
     "detail": "browser_exec"
-   },
-   {
-    "ts": 1795699592,
-    "iso": "2026-11-26T20:26:32+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 6.3s"
-   },
-   {
-    "ts": 1795699585,
-    "iso": "2026-11-26T20:26:25+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "browser_exec",
-    "detail": "browser_exec"
-   },
-   {
-    "ts": 1795699556,
-    "iso": "2026-11-26T20:25:56+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 5.1s"
-   },
-   {
-    "ts": 1795699551,
-    "iso": "2026-11-26T20:25:51+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "browser_exec",
-    "detail": "browser_exec"
-   },
-   {
-    "ts": 1795699551,
-    "iso": "2026-11-26T20:25:51+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 4.2s"
-   },
-   {
-    "ts": 1795699546,
-    "iso": "2026-11-26T20:25:46+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "browser_exec",
-    "detail": "browser_exec"
-   },
-   {
-    "ts": 1795699544,
-    "iso": "2026-11-26T20:25:44+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 6.3s"
-   },
-   {
-    "ts": 1795699538,
-    "iso": "2026-11-26T20:25:38+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "turn",
-    "platform": "telegram",
-    "detail": "turn started (telegram)"
-   },
-   {
-    "ts": 1795699538,
-    "iso": "2026-11-26T20:25:38+07:00",
-    "level": "INFO",
-    "session": null,
-    "kind": "message_in",
-    "detail": "message in (telegram)"
    }
   ],
   "last_tool": {
-   "s77ccf95": "terminal"
+   "s77ccf95": "browser_exec"
   },
   "active_sessions": [
    "s77ccf95"
