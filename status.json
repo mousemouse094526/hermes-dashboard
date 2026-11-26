@@ -1,11 +1,11 @@
 {
- "generated_at": 1795699095,
- "generated_at_iso": "2026-11-26T20:18:15+07:00",
+ "generated_at": 1795699118,
+ "generated_at_iso": "2026-11-26T20:18:38+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 22445
+  "uptime_s": 22468
  },
  "sessions": {
   "items": [
@@ -27,7 +27,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.3,
-    "uptime_s": 357,
+    "uptime_s": 380,
     "kind": "hermes",
     "name": "BROWSER TOOL",
     "role": "daemon",
@@ -38,7 +38,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 1.0,
-    "uptime_s": 186,
+    "uptime_s": 209,
     "kind": "hermes",
     "name": "node",
     "role": "agent",
@@ -49,7 +49,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.1,
-    "uptime_s": 129,
+    "uptime_s": 152,
     "kind": "hermes",
     "name": "SYNC TRIGGER",
     "role": "daemon",
@@ -60,62 +60,29 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 1.1,
-    "uptime_s": 19,
+    "uptime_s": 42,
     "kind": "hermes",
     "name": "node",
     "role": "agent",
     "cmd": "node"
    },
    {
-    "pid": 12244,
+    "pid": 12580,
     "ppid": 42494,
     "cpu": 0.0,
-    "mem": 0.0,
-    "uptime_s": 15,
+    "mem": 0.2,
+    "uptime_s": 11,
     "kind": "hermes",
-    "name": "bash",
-    "role": "agent",
-    "cmd": "bash"
-   },
-   {
-    "pid": 12453,
-    "ppid": 12452,
-    "cpu": 0.0,
-    "mem": 0.0,
-    "uptime_s": 4,
-    "kind": "hermes",
-    "name": "git",
-    "role": "agent",
-    "cmd": "git"
-   },
-   {
-    "pid": 12454,
-    "ppid": 12453,
-    "cpu": 0.0,
-    "mem": 0.1,
-    "uptime_s": 4,
-    "kind": "hermes",
-    "name": "git-remote-https",
-    "role": "agent",
-    "cmd": "git-remote-https"
-   },
-   {
-    "pid": 12459,
-    "ppid": 12454,
-    "cpu": 0.0,
-    "mem": 0.0,
-    "uptime_s": 3,
-    "kind": "hermes",
-    "name": "git",
-    "role": "agent",
-    "cmd": "git"
+    "name": "BROWSER TOOL",
+    "role": "daemon",
+    "cmd": "python3"
    },
    {
     "pid": 42488,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 22447,
+    "uptime_s": 22470,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -126,7 +93,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 22447,
+    "uptime_s": 22470,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -135,9 +102,9 @@
    {
     "pid": 42494,
     "ppid": 42489,
-    "cpu": 2.6,
+    "cpu": 2.2,
     "mem": 3.0,
-    "uptime_s": 22447,
+    "uptime_s": 22470,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -148,7 +115,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 21511,
+    "uptime_s": 21534,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -159,27 +126,27 @@
  "system": {
   "hostname": "home-mac",
   "load": [
-   2.56,
+   2.48,
    2.22,
-   2.05
+   2.06
   ],
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 10495541248,
-   "pct": 61.1
+   "used": 10515775488,
+   "pct": 61.2
   },
   "disk": {
    "total": 494384795648,
-   "free": 360654184448,
+   "free": 360653754368,
    "pct_used": 27.0
   },
-  "uptime_s": 102142
+  "uptime_s": 102165
  },
  "usage": {
   "sessions": 1,
-  "messages": 723,
-  "tokens": 1193657,
+  "messages": 725,
+  "tokens": 1194072,
   "cost_usd": 1.26
  },
  "working": {
@@ -187,15 +154,32 @@
  },
  "activity": {
   "current": {
-   "ts": 1795699083,
-   "iso": "2026-11-26T20:18:03+07:00",
+   "ts": 1795699110,
+   "iso": "2026-11-26T20:18:30+07:00",
    "level": "INFO",
    "session": "s77ccf95",
    "kind": "api",
-   "detail": "glm-5.3-flash · 3.5s",
-   "age_s": 15
+   "detail": "glm-5.3-flash · 4.7s",
+   "age_s": 11
   },
   "events": [
+   {
+    "ts": 1795699110,
+    "iso": "2026-11-26T20:18:30+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 4.7s"
+   },
+   {
+    "ts": 1795699105,
+    "iso": "2026-11-26T20:18:25+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
    {
     "ts": 1795699083,
     "iso": "2026-11-26T20:18:03+07:00",
@@ -348,27 +332,10 @@
     "kind": "tool",
     "tool": "patch",
     "detail": "patch"
-   },
-   {
-    "ts": 1795698924,
-    "iso": "2026-11-26T20:15:24+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 3.7s"
-   },
-   {
-    "ts": 1795698920,
-    "iso": "2026-11-26T20:15:20+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "patch",
-    "detail": "patch"
    }
   ],
   "last_tool": {
-   "s77ccf95": "patch"
+   "s77ccf95": "terminal"
   },
   "active_sessions": [
    "s77ccf95"
