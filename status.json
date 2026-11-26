@@ -1,11 +1,11 @@
 {
- "generated_at": 1795699621,
- "generated_at_iso": "2026-11-26T20:27:01+07:00",
+ "generated_at": 1795699951,
+ "generated_at_iso": "2026-11-26T20:32:31+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 22971
+  "uptime_s": 23301
  },
  "sessions": {
   "items": [
@@ -27,51 +27,40 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.1,
-    "uptime_s": 655,
+    "uptime_s": 984,
     "kind": "hermes",
     "name": "SYNC TRIGGER",
     "role": "daemon",
     "cmd": "dashboard-trigger.py"
    },
    {
-    "pid": 12150,
-    "ppid": 42494,
-    "cpu": 0.0,
-    "mem": 1.0,
-    "uptime_s": 545,
-    "kind": "hermes",
-    "name": "node",
-    "role": "agent",
-    "cmd": "node"
-   },
-   {
     "pid": 14525,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.3,
-    "uptime_s": 78,
+    "uptime_s": 407,
     "kind": "hermes",
     "name": "BROWSER TOOL",
     "role": "daemon",
     "cmd": "browser_harness.daemon"
    },
    {
-    "pid": 14899,
+    "pid": 15286,
     "ppid": 42494,
     "cpu": 0.0,
-    "mem": 0.2,
-    "uptime_s": 3,
+    "mem": 0.0,
+    "uptime_s": 272,
     "kind": "hermes",
-    "name": "BROWSER TOOL",
-    "role": "daemon",
-    "cmd": "python3"
+    "name": "bash",
+    "role": "agent",
+    "cmd": "bash"
    },
    {
     "pid": 42488,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 22973,
+    "uptime_s": 23302,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -82,7 +71,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 22973,
+    "uptime_s": 23302,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -91,9 +80,9 @@
    {
     "pid": 42494,
     "ppid": 42489,
-    "cpu": 2.7,
+    "cpu": 1.0,
     "mem": 2.8,
-    "uptime_s": 22973,
+    "uptime_s": 23302,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -104,7 +93,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 22037,
+    "uptime_s": 22366,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -115,43 +104,119 @@
  "system": {
   "hostname": "home-mac",
   "load": [
-   1.69,
-   1.74,
-   1.87
+   1.76,
+   2.03,
+   1.98
   ],
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 10393190400,
-   "pct": 60.5
+   "used": 10059464704,
+   "pct": 58.6
   },
   "disk": {
    "total": 494384795648,
-   "free": 360647360512,
-   "pct_used": 27.1
+   "free": 360672870400,
+   "pct_used": 27.0
   },
-  "uptime_s": 102668
+  "uptime_s": 102997
  },
  "usage": {
   "sessions": 1,
-  "messages": 737,
-  "tokens": 1212359,
-  "cost_usd": 1.3
+  "messages": 747,
+  "tokens": 1241509,
+  "cost_usd": 1.33
  },
  "working": {
   "items": []
  },
  "activity": {
   "current": {
-   "ts": 1795699621,
-   "iso": "2026-11-26T20:27:01+07:00",
-   "level": "INFO",
-   "session": "s77ccf95",
-   "kind": "api",
-   "detail": "glm-5.3-flash · 6.4s",
-   "age_s": 3
+   "ts": 1795699757,
+   "iso": "2026-11-26T20:29:17+07:00",
+   "level": "WARNING",
+   "session": null,
+   "kind": "other",
+   "detail": "warning: browser_supervisor",
+   "age_s": 196
   },
   "events": [
+   {
+    "ts": 1795699757,
+    "iso": "2026-11-26T20:29:17+07:00",
+    "level": "WARNING",
+    "session": null,
+    "kind": "other",
+    "detail": "warning: browser_supervisor"
+   },
+   {
+    "ts": 1795699681,
+    "iso": "2026-11-26T20:28:01+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 3.0s"
+   },
+   {
+    "ts": 1795699678,
+    "iso": "2026-11-26T20:27:58+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795699669,
+    "iso": "2026-11-26T20:27:49+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 4.7s"
+   },
+   {
+    "ts": 1795699664,
+    "iso": "2026-11-26T20:27:44+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "patch",
+    "detail": "patch"
+   },
+   {
+    "ts": 1795699664,
+    "iso": "2026-11-26T20:27:44+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 7.9s"
+   },
+   {
+    "ts": 1795699654,
+    "iso": "2026-11-26T20:27:34+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "patch",
+    "detail": "patch"
+   },
+   {
+    "ts": 1795699654,
+    "iso": "2026-11-26T20:27:34+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 8.5s"
+   },
+   {
+    "ts": 1795699646,
+    "iso": "2026-11-26T20:27:26+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "browser_exec",
+    "detail": "browser_exec"
+   },
    {
     "ts": 1795699621,
     "iso": "2026-11-26T20:27:01+07:00",
@@ -244,86 +309,10 @@
     "session": null,
     "kind": "message_in",
     "detail": "message in (telegram)"
-   },
-   {
-    "ts": 1795699176,
-    "iso": "2026-11-26T20:19:36+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 6.6s"
-   },
-   {
-    "ts": 1795699170,
-    "iso": "2026-11-26T20:19:30+07:00",
-    "level": "WARNING",
-    "session": "s77ccf95",
-    "kind": "tool_error",
-    "tool": "memory",
-    "detail": "tool error: memory"
-   },
-   {
-    "ts": 1795699170,
-    "iso": "2026-11-26T20:19:30+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 4.4s"
-   },
-   {
-    "ts": 1795699165,
-    "iso": "2026-11-26T20:19:25+07:00",
-    "level": "WARNING",
-    "session": "s77ccf95",
-    "kind": "tool_error",
-    "tool": "memory",
-    "detail": "tool error: memory"
-   },
-   {
-    "ts": 1795699165,
-    "iso": "2026-11-26T20:19:25+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 3.8s"
-   },
-   {
-    "ts": 1795699161,
-    "iso": "2026-11-26T20:19:21+07:00",
-    "level": "WARNING",
-    "session": "s77ccf95",
-    "kind": "tool_error",
-    "tool": "memory",
-    "detail": "tool error: memory"
-   },
-   {
-    "ts": 1795699161,
-    "iso": "2026-11-26T20:19:21+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 4.6s"
-   },
-   {
-    "ts": 1795699156,
-    "iso": "2026-11-26T20:19:16+07:00",
-    "level": "WARNING",
-    "session": "s77ccf95",
-    "kind": "tool_error",
-    "tool": "memory",
-    "detail": "tool error: memory"
-   },
-   {
-    "ts": 1795699156,
-    "iso": "2026-11-26T20:19:16+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 3.5s"
    }
   ],
   "last_tool": {
-   "s77ccf95": "browser_exec"
+   "s77ccf95": "terminal"
   },
   "active_sessions": [
    "s77ccf95"
