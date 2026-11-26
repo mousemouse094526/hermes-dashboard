@@ -451,14 +451,9 @@ function tickNow() {
 async function sync(force) {
   const btn = $("refresh");
   if (btn.dataset.busy) return;
-  if (quotaState.used >= quotaState.limit) {
-    flashAge("SYNC quota exhausted this hour — button locked until the hour rolls over");
-    return;
-  }
   btn.dataset.busy = "1";
   btn.classList.add("syncing");
-  const old = btn.textContent;
-  btn.textContent = force ? "⏳ SYNCING…" : "⟳ …";
+  btn.textContent = "⟳ SYNCING…";
   try {
     let pushed = null;  // unknown when no local daemon answered
     if (force) {
@@ -467,33 +462,22 @@ async function sync(force) {
         const j = await t.json();
         pushed = !!j.pushed;
         if (j && j.quota) updateQuota(j.quota.used, j.quota.limit);
-        if (j && j.quota && j.quota.used >= j.quota.limit) {
-          btn.textContent = "⛔ SYNC LIMIT";
-          toast("⛔ SYNC LIMIT — โควตา build ชั่วโมงนี้หมด รอ reset", "bad");
-        } else if (j.pushed === false) {
-          toast("✓ UP TO DATE — ข้อมูลบนเว็บเป็นล่าสุดแล้ว ไม่มีอะไรใหม่ให้ push");
-        } else if (j.pushed === true) {
-          toast("✓ SYNCED — เก็บข้อมูลใหม่และ push แล้ว (รอ Pages build ~1-3 นาที)");
-        }
-      } catch (_) { /* no local trigger daemon: just refetch */ }
+        if (j && j.quota && j.quota.used >= j.quota.limit) toast("⛔ SYNC LIMIT — โควตา build ชั่วโมงนี้หมด รอ reset", "bad");
+        else if (j.pushed === false) toast("✓ UP TO DATE — ข้อมูลบนเว็บล่าสุดแล้ว ไม่มีอะไรใหม่ให้ push");
+        else if (j.pushed === true) toast("✓ SYNCED — เก็บข้อมูลใหม่และ push แล้ว (รอ Pages build ~1-3 นาที)");
+      } catch (_) { /* no local daemon reachable */ pushed = null; }
     }
     const freshBefore = data?.generated_at;
     await load();
-    if (force && btn.textContent !== "⛔ SYNC LIMIT") {
-      const gotNewer = data?.generated_at > freshBefore;  // Pages served newer data than before the sync
-      if (pushed === false && !gotNewer) {
-        btn.textContent = "✓ UP TO DATE";
-        setTimeout(() => { if (btn.textContent === "✓ UP TO DATE") btn.textContent = old; }, 4000);
-      } else if (pushed || gotNewer) {
-        btn.textContent = "✓ SYNCED";
-        setTimeout(() => { if (btn.textContent === "✓ SYNCED") btn.textContent = old; }, 4000);
-      } else {
-        btn.textContent = old;
-      }
-    } else if (btn.textContent !== "⛔ SYNC LIMIT") btn.textContent = old;
+    if (force && pushed === null) {
+      const gotNewer = data?.generated_at > freshBefore;
+      toast(gotNewer ? "✓ ได้ข้อมูลใหม่จาก GitHub แล้ว"
+                     : "ℹ️ ยังเป็นข้อมูลเดิม · การ SYNC จริง (เก็บใหม่+push) ใช้ได้เมื่อเปิดผ่าน http://127.0.0.1:8787", gotNewer ? "" : "warn");
+    }
   } finally {
     btn.dataset.busy = "";
     btn.classList.remove("syncing");
+    btn.textContent = "⟳ SYNC";
   }
 }
 const quotaState = {used: 0, limit: 9};
