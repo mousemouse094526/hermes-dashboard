@@ -1,11 +1,11 @@
 {
- "generated_at": 1795693967,
- "generated_at_iso": "2026-11-26T18:52:47+07:00",
+ "generated_at": 1795697198,
+ "generated_at_iso": "2026-11-26T19:46:38+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 17317
+  "uptime_s": 20548
  },
  "sessions": {
   "items": [
@@ -23,11 +23,154 @@
  "processes": {
   "items": [
    {
+    "pid": 5003,
+    "ppid": 42494,
+    "cpu": 0.0,
+    "mem": 1.5,
+    "uptime_s": 88,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 5005,
+    "ppid": 1,
+    "cpu": 0.0,
+    "mem": 0.0,
+    "uptime_s": 88,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 5007,
+    "ppid": 1,
+    "cpu": 0.0,
+    "mem": 0.0,
+    "uptime_s": 88,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 5011,
+    "ppid": 5003,
+    "cpu": 0.1,
+    "mem": 0.8,
+    "uptime_s": 88,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 5012,
+    "ppid": 5003,
+    "cpu": 0.0,
+    "mem": 0.4,
+    "uptime_s": 88,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 5013,
+    "ppid": 5003,
+    "cpu": 0.0,
+    "mem": 0.2,
+    "uptime_s": 87,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 5016,
+    "ppid": 5003,
+    "cpu": 0.0,
+    "mem": 1.1,
+    "uptime_s": 87,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 5017,
+    "ppid": 5003,
+    "cpu": 0.0,
+    "mem": 0.4,
+    "uptime_s": 87,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 5018,
+    "ppid": 5003,
+    "cpu": 1.9,
+    "mem": 1.0,
+    "uptime_s": 87,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 5023,
+    "ppid": 1,
+    "cpu": 0.0,
+    "mem": 0.3,
+    "uptime_s": 86,
+    "kind": "hermes",
+    "name": "BROWSER TOOL",
+    "role": "daemon",
+    "cmd": "browser_harness.daemon"
+   },
+   {
+    "pid": 5031,
+    "ppid": 5003,
+    "cpu": 0.0,
+    "mem": 0.4,
+    "uptime_s": 84,
+    "kind": "hermes",
+    "name": "Google",
+    "role": "agent",
+    "cmd": "Google"
+   },
+   {
+    "pid": 5240,
+    "ppid": 42494,
+    "cpu": 0.0,
+    "mem": 1.0,
+    "uptime_s": 39,
+    "kind": "hermes",
+    "name": "node",
+    "role": "agent",
+    "cmd": "node"
+   },
+   {
+    "pid": 5601,
+    "ppid": 42494,
+    "cpu": 0.0,
+    "mem": 0.0,
+    "uptime_s": 3,
+    "kind": "hermes",
+    "name": "bash",
+    "role": "agent",
+    "cmd": "bash"
+   },
+   {
     "pid": 42488,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 17319,
+    "uptime_s": 20550,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -38,7 +181,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 17319,
+    "uptime_s": 20550,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -47,9 +190,9 @@
    {
     "pid": 42494,
     "ppid": 42489,
-    "cpu": 2.9,
-    "mem": 2.8,
-    "uptime_s": 17319,
+    "cpu": 1.0,
+    "mem": 3.0,
+    "uptime_s": 20550,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -60,7 +203,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 16383,
+    "uptime_s": 19614,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -71,69 +214,65 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.1,
-    "uptime_s": 10526,
+    "uptime_s": 13757,
     "kind": "hermes",
     "name": "SYNC TRIGGER",
     "role": "daemon",
     "cmd": "dashboard-trigger.py"
-   },
-   {
-    "pid": 95341,
-    "ppid": 1,
-    "cpu": 0.0,
-    "mem": 0.3,
-    "uptime_s": 251,
-    "kind": "hermes",
-    "name": "BROWSER TOOL",
-    "role": "daemon",
-    "cmd": "browser_harness.daemon"
    }
   ]
  },
  "system": {
   "hostname": "home-mac",
   "load": [
-   1.74,
-   1.82,
-   1.97
+   2.71,
+   2.15,
+   1.95
   ],
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 9971695616,
-   "pct": 58.0
+   "used": 10524901376,
+   "pct": 61.3
   },
   "disk": {
    "total": 494384795648,
-   "free": 360698576896,
+   "free": 360685359104,
    "pct_used": 27.0
   },
-  "uptime_s": 97014
+  "uptime_s": 100245
  },
  "usage": {
   "sessions": 1,
-  "messages": 570,
-  "tokens": 772926,
-  "cost_usd": 0.82
+  "messages": 599,
+  "tokens": 785245,
+  "cost_usd": 0.9
  },
  "working": {
   "items": []
  },
  "activity": {
   "current": {
-   "ts": 1795693968,
-   "iso": "2026-11-26T18:52:48+07:00",
+   "ts": 1795697198,
+   "iso": "2026-11-26T19:46:38+07:00",
    "level": "INFO",
    "session": "s77ccf95",
-   "kind": "tool",
-   "tool": "terminal",
-   "detail": "terminal",
-   "age_s": 2
+   "kind": "api",
+   "detail": "glm-5.3-flash · 4.2s",
+   "age_s": 3
   },
   "events": [
    {
-    "ts": 1795693968,
-    "iso": "2026-11-26T18:52:48+07:00",
+    "ts": 1795697198,
+    "iso": "2026-11-26T19:46:38+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 4.2s"
+   },
+   {
+    "ts": 1795697193,
+    "iso": "2026-11-26T19:46:33+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "tool",
@@ -141,16 +280,16 @@
     "detail": "terminal"
    },
    {
-    "ts": 1795693961,
-    "iso": "2026-11-26T18:52:41+07:00",
+    "ts": 1795697193,
+    "iso": "2026-11-26T19:46:33+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "api",
-    "detail": "glm-5.3-flash · 5.4s"
+    "detail": "glm-5.3-flash · 3.4s"
    },
    {
-    "ts": 1795693956,
-    "iso": "2026-11-26T18:52:36+07:00",
+    "ts": 1795697190,
+    "iso": "2026-11-26T19:46:30+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "tool",
@@ -158,125 +297,16 @@
     "detail": "terminal"
    },
    {
-    "ts": 1795693947,
-    "iso": "2026-11-26T18:52:27+07:00",
+    "ts": 1795697185,
+    "iso": "2026-11-26T19:46:25+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "api",
-    "detail": "glm-5.3-flash · 5.4s"
+    "detail": "glm-5.3-flash · 3.3s"
    },
    {
-    "ts": 1795693942,
-    "iso": "2026-11-26T18:52:22+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795693942,
-    "iso": "2026-11-26T18:52:22+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 5.8s"
-   },
-   {
-    "ts": 1795693935,
-    "iso": "2026-11-26T18:52:15+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "turn",
-    "platform": "telegram",
-    "detail": "turn started (telegram)"
-   },
-   {
-    "ts": 1795693935,
-    "iso": "2026-11-26T18:52:15+07:00",
-    "level": "INFO",
-    "session": null,
-    "kind": "message_in",
-    "detail": "message in (telegram)"
-   },
-   {
-    "ts": 1795693893,
-    "iso": "2026-11-26T18:51:33+07:00",
-    "level": "WARNING",
-    "session": null,
-    "kind": "other",
-    "detail": "warning: browser_supervisor"
-   },
-   {
-    "ts": 1795693877,
-    "iso": "2026-11-26T18:51:17+07:00",
-    "level": "INFO",
-    "session": null,
-    "kind": "message_out",
-    "detail": "message out (telegram)"
-   },
-   {
-    "ts": 1795693877,
-    "iso": "2026-11-26T18:51:17+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 5.1s"
-   },
-   {
-    "ts": 1795693872,
-    "iso": "2026-11-26T18:51:12+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "browser_exec",
-    "detail": "browser_exec"
-   },
-   {
-    "ts": 1795693863,
-    "iso": "2026-11-26T18:51:03+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 5.4s"
-   },
-   {
-    "ts": 1795693858,
-    "iso": "2026-11-26T18:50:58+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795693757,
-    "iso": "2026-11-26T18:49:17+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 2.6s"
-   },
-   {
-    "ts": 1795693754,
-    "iso": "2026-11-26T18:49:14+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795693747,
-    "iso": "2026-11-26T18:49:07+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 2.9s"
-   },
-   {
-    "ts": 1795693744,
-    "iso": "2026-11-26T18:49:04+07:00",
+    "ts": 1795697181,
+    "iso": "2026-11-26T19:46:21+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "tool",
@@ -284,21 +314,123 @@
     "detail": "patch"
    },
    {
-    "ts": 1795693744,
-    "iso": "2026-11-26T18:49:04+07:00",
+    "ts": 1795697181,
+    "iso": "2026-11-26T19:46:21+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "api",
-    "detail": "glm-5.3-flash · 5.6s"
+    "detail": "glm-5.3-flash · 8.4s"
    },
    {
-    "ts": 1795693739,
-    "iso": "2026-11-26T18:48:59+07:00",
+    "ts": 1795697173,
+    "iso": "2026-11-26T19:46:13+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "tool",
     "tool": "terminal",
     "detail": "terminal"
+   },
+   {
+    "ts": 1795697173,
+    "iso": "2026-11-26T19:46:13+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 5.5s"
+   },
+   {
+    "ts": 1795697167,
+    "iso": "2026-11-26T19:46:07+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795697166,
+    "iso": "2026-11-26T19:46:06+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 2.9s"
+   },
+   {
+    "ts": 1795697163,
+    "iso": "2026-11-26T19:46:03+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "patch",
+    "detail": "patch"
+   },
+   {
+    "ts": 1795697162,
+    "iso": "2026-11-26T19:46:02+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 11.4s"
+   },
+   {
+    "ts": 1795697151,
+    "iso": "2026-11-26T19:45:51+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795697150,
+    "iso": "2026-11-26T19:45:50+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 3.1s"
+   },
+   {
+    "ts": 1795697147,
+    "iso": "2026-11-26T19:45:47+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795697146,
+    "iso": "2026-11-26T19:45:46+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 8.4s"
+   },
+   {
+    "ts": 1795697138,
+    "iso": "2026-11-26T19:45:38+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "browser_exec",
+    "detail": "browser_exec"
+   },
+   {
+    "ts": 1795697129,
+    "iso": "2026-11-26T19:45:29+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 5.4s"
+   },
+   {
+    "ts": 1795697124,
+    "iso": "2026-11-26T19:45:24+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "browser_exec",
+    "detail": "browser_exec"
    }
   ],
   "last_tool": {
