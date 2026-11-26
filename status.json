@@ -1,11 +1,11 @@
 {
- "generated_at": 1795699089,
- "generated_at_iso": "2026-11-26T20:18:09+07:00",
+ "generated_at": 1795699090,
+ "generated_at_iso": "2026-11-26T20:18:10+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 22439
+  "uptime_s": 22441
  },
  "sessions": {
   "items": [
@@ -27,7 +27,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.3,
-    "uptime_s": 351,
+    "uptime_s": 352,
     "kind": "hermes",
     "name": "BROWSER TOOL",
     "role": "daemon",
@@ -38,7 +38,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 1.0,
-    "uptime_s": 180,
+    "uptime_s": 181,
     "kind": "hermes",
     "name": "node",
     "role": "agent",
@@ -49,7 +49,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.1,
-    "uptime_s": 123,
+    "uptime_s": 124,
     "kind": "hermes",
     "name": "SYNC TRIGGER",
     "role": "daemon",
@@ -60,7 +60,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 1.1,
-    "uptime_s": 13,
+    "uptime_s": 14,
     "kind": "hermes",
     "name": "node",
     "role": "agent",
@@ -71,40 +71,40 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 9,
+    "uptime_s": 10,
     "kind": "hermes",
     "name": "bash",
     "role": "agent",
     "cmd": "bash"
    },
    {
-    "pid": 12365,
-    "ppid": 12343,
-    "cpu": 21.8,
-    "mem": 0.2,
+    "pid": 12413,
+    "ppid": 12411,
+    "cpu": 0.7,
+    "mem": 0.0,
     "uptime_s": 0,
     "kind": "hermes",
-    "name": "python3",
+    "name": "git",
     "role": "agent",
-    "cmd": "python3"
+    "cmd": "git"
    },
    {
-    "pid": 12369,
-    "ppid": 12365,
-    "cpu": 9.2,
-    "mem": 0.3,
+    "pid": 12414,
+    "ppid": 12413,
+    "cpu": 2.6,
+    "mem": 0.1,
     "uptime_s": 0,
     "kind": "hermes",
-    "name": "python",
+    "name": "git-remote-https",
     "role": "agent",
-    "cmd": "worker.py"
+    "cmd": "git-remote-https"
    },
    {
     "pid": 42488,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 22441,
+    "uptime_s": 22442,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -115,7 +115,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 22441,
+    "uptime_s": 22442,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -124,9 +124,9 @@
    {
     "pid": 42494,
     "ppid": 42489,
-    "cpu": 0.8,
+    "cpu": 2.8,
     "mem": 3.0,
-    "uptime_s": 22441,
+    "uptime_s": 22442,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -137,7 +137,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 21505,
+    "uptime_s": 21506,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -155,15 +155,15 @@
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 10530848768,
-   "pct": 61.3
+   "used": 10500734976,
+   "pct": 61.1
   },
   "disk": {
    "total": 494384795648,
-   "free": 360654233600,
+   "free": 360654241792,
    "pct_used": 27.0
   },
-  "uptime_s": 102136
+  "uptime_s": 102137
  },
  "usage": {
   "sessions": 1,
@@ -182,7 +182,7 @@
    "session": "s77ccf95",
    "kind": "api",
    "detail": "glm-5.3-flash · 3.5s",
-   "age_s": 9
+   "age_s": 10
   },
   "events": [
    {
