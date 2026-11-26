@@ -453,10 +453,12 @@ async function sync(force) {
   const old = btn.textContent;
   btn.textContent = force ? "⏳ SYNCING…" : "⟳ …";
   try {
+    let pushed = null;  // unknown when no local daemon answered
     if (force) {
       try {
         const t = await fetch("http://127.0.0.1:8787/sync", {cache: "no-store", signal: AbortSignal.timeout(20000)});
         const j = await t.json();
+        pushed = !!j.pushed;
         if (j && j.quota) updateQuota(j.quota.used, j.quota.limit);
         if (j && j.quota && j.quota.used >= j.quota.limit) {
           btn.textContent = "⛔ SYNC LIMIT";
@@ -464,11 +466,23 @@ async function sync(force) {
         }
       } catch (_) { /* no local trigger daemon: just refetch */ }
     }
+    const freshBefore = data?.generated_at;
     await load();
+    if (force && btn.textContent !== "⛔ SYNC LIMIT") {
+      const gotNewer = data?.generated_at > freshBefore;  // Pages served newer data than before the sync
+      if (pushed === false && !gotNewer) {
+        btn.textContent = "✓ UP TO DATE";
+        setTimeout(() => { if (btn.textContent === "✓ UP TO DATE") btn.textContent = old; }, 4000);
+      } else if (pushed || gotNewer) {
+        btn.textContent = "✓ SYNCED";
+        setTimeout(() => { if (btn.textContent === "✓ SYNCED") btn.textContent = old; }, 4000);
+      } else {
+        btn.textContent = old;
+      }
+    } else if (btn.textContent !== "⛔ SYNC LIMIT") btn.textContent = old;
   } finally {
     btn.dataset.busy = "";
     btn.classList.remove("syncing");
-    if (btn.textContent !== "⛔ SYNC LIMIT") btn.textContent = old;
   }
 }
 const quotaState = {used: 0, limit: 9};
