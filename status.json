@@ -1,11 +1,11 @@
 {
- "generated_at": 1795698305,
- "generated_at_iso": "2026-11-26T20:05:05+07:00",
+ "generated_at": 1795699083,
+ "generated_at_iso": "2026-11-26T20:18:03+07:00",
  "gateway": {
   "pid": 42488,
   "lines": [],
   "running": true,
-  "uptime_s": 21655
+  "uptime_s": 22433
  },
  "sessions": {
   "items": [
@@ -23,44 +23,55 @@
  "processes": {
   "items": [
    {
-    "pid": 6355,
+    "pid": 11027,
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.3,
-    "uptime_s": 1000,
+    "uptime_s": 345,
     "kind": "hermes",
     "name": "BROWSER TOOL",
     "role": "daemon",
     "cmd": "browser_harness.daemon"
    },
    {
-    "pid": 7218,
-    "ppid": 1,
-    "cpu": 0.0,
-    "mem": 0.1,
-    "uptime_s": 911,
-    "kind": "hermes",
-    "name": "SYNC TRIGGER",
-    "role": "daemon",
-    "cmd": "dashboard-trigger.py"
-   },
-   {
-    "pid": 9470,
+    "pid": 11501,
     "ppid": 42494,
     "cpu": 0.0,
-    "mem": 1.4,
-    "uptime_s": 50,
+    "mem": 1.0,
+    "uptime_s": 174,
     "kind": "hermes",
     "name": "node",
     "role": "agent",
     "cmd": "node"
    },
    {
-    "pid": 9588,
+    "pid": 11732,
+    "ppid": 1,
+    "cpu": 0.0,
+    "mem": 0.1,
+    "uptime_s": 117,
+    "kind": "hermes",
+    "name": "SYNC TRIGGER",
+    "role": "daemon",
+    "cmd": "dashboard-trigger.py"
+   },
+   {
+    "pid": 12150,
+    "ppid": 42494,
+    "cpu": 0.0,
+    "mem": 1.1,
+    "uptime_s": 7,
+    "kind": "hermes",
+    "name": "node",
+    "role": "agent",
+    "cmd": "node"
+   },
+   {
+    "pid": 12244,
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 33,
+    "uptime_s": 3,
     "kind": "hermes",
     "name": "bash",
     "role": "agent",
@@ -71,7 +82,7 @@
     "ppid": 1,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 21656,
+    "uptime_s": 22435,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -82,7 +93,7 @@
     "ppid": 42488,
     "cpu": 0.0,
     "mem": 0.2,
-    "uptime_s": 21656,
+    "uptime_s": 22435,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -91,9 +102,9 @@
    {
     "pid": 42494,
     "ppid": 42489,
-    "cpu": 2.6,
-    "mem": 2.7,
-    "uptime_s": 21656,
+    "cpu": 0.6,
+    "mem": 3.0,
+    "uptime_s": 22435,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -104,7 +115,7 @@
     "ppid": 42494,
     "cpu": 0.0,
     "mem": 0.0,
-    "uptime_s": 20720,
+    "uptime_s": 21499,
     "kind": "hermes",
     "name": "GATEWAY",
     "role": "daemon",
@@ -115,71 +126,54 @@
  "system": {
   "hostname": "home-mac",
   "load": [
-   1.73,
-   1.84,
-   1.88
+   2.42,
+   2.18,
+   2.04
   ],
   "ncpu": 8,
   "memory": {
    "total": 17179869184,
-   "used": 10283057152,
-   "pct": 59.9
+   "used": 10527326208,
+   "pct": 61.3
   },
   "disk": {
    "total": 494384795648,
-   "free": 360693886976,
+   "free": 360654778368,
    "pct_used": 27.0
   },
-  "uptime_s": 101351
+  "uptime_s": 102130
  },
  "usage": {
   "sessions": 1,
-  "messages": 660,
-  "tokens": 1129895,
-  "cost_usd": 1.08
+  "messages": 723,
+  "tokens": 1193657,
+  "cost_usd": 1.26
  },
  "working": {
   "items": []
  },
  "activity": {
   "current": {
-   "ts": 1795698274,
-   "iso": "2026-11-26T20:04:34+07:00",
+   "ts": 1795699083,
+   "iso": "2026-11-26T20:18:03+07:00",
    "level": "INFO",
    "session": "s77ccf95",
    "kind": "api",
-   "detail": "glm-5.3-flash · 2.9s",
-   "age_s": 33
+   "detail": "glm-5.3-flash · 3.5s",
+   "age_s": 3
   },
   "events": [
    {
-    "ts": 1795698274,
-    "iso": "2026-11-26T20:04:34+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 2.9s"
-   },
-   {
-    "ts": 1795698271,
-    "iso": "2026-11-26T20:04:31+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795698261,
-    "iso": "2026-11-26T20:04:21+07:00",
+    "ts": 1795699083,
+    "iso": "2026-11-26T20:18:03+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "api",
     "detail": "glm-5.3-flash · 3.5s"
    },
    {
-    "ts": 1795698257,
-    "iso": "2026-11-26T20:04:17+07:00",
+    "ts": 1795699079,
+    "iso": "2026-11-26T20:17:59+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "tool",
@@ -187,16 +181,135 @@
     "detail": "patch"
    },
    {
-    "ts": 1795698257,
-    "iso": "2026-11-26T20:04:17+07:00",
+    "ts": 1795699079,
+    "iso": "2026-11-26T20:17:59+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 5.4s"
+   },
+   {
+    "ts": 1795699074,
+    "iso": "2026-11-26T20:17:54+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795699071,
+    "iso": "2026-11-26T20:17:51+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 4.3s"
+   },
+   {
+    "ts": 1795699067,
+    "iso": "2026-11-26T20:17:47+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795699066,
+    "iso": "2026-11-26T20:17:46+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 4.4s"
+   },
+   {
+    "ts": 1795699062,
+    "iso": "2026-11-26T20:17:42+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "patch",
+    "detail": "patch"
+   },
+   {
+    "ts": 1795699062,
+    "iso": "2026-11-26T20:17:42+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 7.9s"
+   },
+   {
+    "ts": 1795699054,
+    "iso": "2026-11-26T20:17:34+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "browser_exec",
+    "detail": "browser_exec"
+   },
+   {
+    "ts": 1795699039,
+    "iso": "2026-11-26T20:17:19+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "api",
     "detail": "glm-5.3-flash · 3.6s"
    },
    {
-    "ts": 1795698253,
-    "iso": "2026-11-26T20:04:13+07:00",
+    "ts": 1795699035,
+    "iso": "2026-11-26T20:17:15+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795699034,
+    "iso": "2026-11-26T20:17:14+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 10.7s"
+   },
+   {
+    "ts": 1795699023,
+    "iso": "2026-11-26T20:17:03+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "browser_exec",
+    "detail": "browser_exec"
+   },
+   {
+    "ts": 1795698983,
+    "iso": "2026-11-26T20:16:23+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 4.7s"
+   },
+   {
+    "ts": 1795698978,
+    "iso": "2026-11-26T20:16:18+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "tool",
+    "tool": "terminal",
+    "detail": "terminal"
+   },
+   {
+    "ts": 1795698930,
+    "iso": "2026-11-26T20:15:30+07:00",
+    "level": "INFO",
+    "session": "s77ccf95",
+    "kind": "api",
+    "detail": "glm-5.3-flash · 5.5s"
+   },
+   {
+    "ts": 1795698924,
+    "iso": "2026-11-26T20:15:24+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "tool",
@@ -204,126 +317,25 @@
     "detail": "patch"
    },
    {
-    "ts": 1795698253,
-    "iso": "2026-11-26T20:04:13+07:00",
+    "ts": 1795698924,
+    "iso": "2026-11-26T20:15:24+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "api",
-    "detail": "glm-5.3-flash · 4.7s"
+    "detail": "glm-5.3-flash · 3.7s"
    },
    {
-    "ts": 1795698249,
-    "iso": "2026-11-26T20:04:09+07:00",
+    "ts": 1795698920,
+    "iso": "2026-11-26T20:15:20+07:00",
     "level": "INFO",
     "session": "s77ccf95",
     "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795698249,
-    "iso": "2026-11-26T20:04:09+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 3.8s"
-   },
-   {
-    "ts": 1795698245,
-    "iso": "2026-11-26T20:04:05+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "read_file",
-    "detail": "read_file"
-   },
-   {
-    "ts": 1795698245,
-    "iso": "2026-11-26T20:04:05+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 3.2s"
-   },
-   {
-    "ts": 1795698241,
-    "iso": "2026-11-26T20:04:01+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "read_file",
-    "detail": "read_file"
-   },
-   {
-    "ts": 1795698241,
-    "iso": "2026-11-26T20:04:01+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 3.0s"
-   },
-   {
-    "ts": 1795698238,
-    "iso": "2026-11-26T20:03:58+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "read_file",
-    "detail": "read_file"
-   },
-   {
-    "ts": 1795698238,
-    "iso": "2026-11-26T20:03:58+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 3.0s"
-   },
-   {
-    "ts": 1795698235,
-    "iso": "2026-11-26T20:03:55+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "tool",
-    "tool": "terminal",
-    "detail": "terminal"
-   },
-   {
-    "ts": 1795698235,
-    "iso": "2026-11-26T20:03:55+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 6.6s"
-   },
-   {
-    "ts": 1795698228,
-    "iso": "2026-11-26T20:03:48+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "turn",
-    "platform": "telegram",
-    "detail": "turn started (telegram)"
-   },
-   {
-    "ts": 1795698228,
-    "iso": "2026-11-26T20:03:48+07:00",
-    "level": "INFO",
-    "session": null,
-    "kind": "message_in",
-    "detail": "message in (telegram)"
-   },
-   {
-    "ts": 1795697478,
-    "iso": "2026-11-26T19:51:18+07:00",
-    "level": "INFO",
-    "session": "s77ccf95",
-    "kind": "api",
-    "detail": "glm-5.3-flash · 5.4s"
+    "tool": "patch",
+    "detail": "patch"
    }
   ],
   "last_tool": {
-   "s77ccf95": "terminal"
+   "s77ccf95": "patch"
   },
   "active_sessions": [
    "s77ccf95"
